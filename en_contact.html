@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | AL-BADER International Contracting</title>
+    <meta name="description"
+        content="Contact AL-BADER experts for a free consultation or project inquiries in Riyadh, KSA.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Contact Page Specific Styles (for the ADSS layout replication) */
+        .contact-grid-layout {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            /* Info on Left, Form on Right */
+            gap: 60px;
+            margin-top: 50px;
+            align-items: center;
+            /* لمحاذاة الصندوقين عمودياً */
+        }
+
+        .contact-info-section {
+            padding: 30px 0;
+        }
+
+        .contact-info-section h2 {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .contact-info-section h3 {
+            color: var(--accent-color);
+            margin-top: 30px;
+        }
+
+        .contact-form-container {
+            background-color: var(--nav-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Form Fields Styling */
+        .contact-form-container label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: var(--text-light);
+            /* Labels are light */
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .contact-form-container input[type="text"],
+        .contact-form-container input[type="email"],
+        .contact-form-container input[type="tel"],
+        .contact-form-container textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--heading-color);
+            background-color: var(--bg-dark);
+            /* Inputs are dark */
+            color: var(--text-light);
+        }
+
+        .contact-form-container textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-send {
+            /* Gradient Button Style - Mimicking ADSS */
+            background: linear-gradient(135deg, #7A5AF8, #5AF8A6);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            float: right;
+            /* Button to the right (LTR) */
+            transition: opacity 0.3s;
+        }
+
+        .btn-send:hover {
+            opacity: 0.9;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .contact-grid-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+    <div class="container header-container">
+        <!-- 1. الشعار -->
+        <div class="logo header-logo">
+            <a href="en_home.html">
+                <img src="images/logo-removebg-preview (3).png" alt="AL-Bader Aldawlih For contracting Logo" style="height: 40px; width: auto;">
+                <span>AL-BADER International Contracting</span>
+            </a>
+        </div>
+        
+        <!-- 2. زر الهامبرغر (للموبايل) -->
+        <button class="hamburger-menu" aria-label="Toggle Navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        
+        <!-- 3. القائمة الرئيسية (والمنسدلة للموبايل) -->
+        <!-- هذا العنصر هو الذي كان مفقوداً أو محذوفاً -->
+        <div class="main-nav-wrapper">
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="en_home.html">Home</a></li>
+                    <li><a href="en_projects.html">Projects</a></li>
+                    <li><a href="en_services.html">Services</a></li>
+                    <li><a href="en_about.html">About Us</a></li>
+                    <li class="active"><a href="en_contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <!-- أزرار الإجراءات (تظهر في الديسكتوب وتُكرر في القائمة المنسدلة للموبايل) -->
+            <div class="header-actions-group">
+                <a href="ar_contact.html" class="lang-btn">العربية</a>
+                <a href="en_contact.html" class="consultation-btn">Get Consultation</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+   <main>
+    <div id="particles-js"></div>
+    <section class="page-section content-above-animation">
+        <div class="container">
+            <!-- العنوان الرئيسي -->
+            <h1 style="text-align: center;">Get in Touch With Our Experts</h1>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">We are waiting for your next project. Start your journey with excellence today.</p>
+
+            <!-- التخطيط المقسم (Grid) -->
+            <div class="contact-grid-layout">
+                
+                <!-- العمود الأيسر (المعلومات) -->
+                <div class="contact-info-section">
+                    <!-- ... محتوى معلومات الاتصال ... -->
+                    <h2 style="color: var(--primary-color);">Contact Us</h2>
+                    <h3 style="color: var(--accent-color); margin-top: 30px;">KSA, Riyadh Office</h3>
+                    <p style="margin-bottom: 5px;">Riyadh, Al-Aqiq District, Prince Mohammed bin Salman St.</p>
+                    <p><i class="fas fa-phone-alt" style="color: var(--accent-color); margin-right: 10px;"></i> +966 5 4845 6565</p>
+                    <p><i class="fas fa-envelope" style="color: var(--accent-color); margin-right: 10px;"></i> info@albadercontracting.com</p>
+
+                    <h3 style="color: var(--accent-color); margin-top: 30px;">KSA, Al-Madinah Al-Munawwarah</h3>
+                    <p style="margin-bottom: 5px;">Al-Madina Al-Munawwarah, Al-Rayah District, Zarrah Ibn Amir Street St.</p>
+                    <p><i class="fas fa-phone-alt" style="color: var(--accent-color); margin-right: 10px;"></i> +966 5 6110 0675</p>
+                    <p><i class="fas fa-envelope" style="color: var(--accent-color); margin-right: 10px;"></i> info.madinah@albadercontracting.com</p>
+                </div>
+
+                <!-- العمود الأيمن (النموذج) -->
+                <div class="contact-form-container">
+                    <h2 style="color: var(--heading-color); text-align: center; margin-bottom: 40px;">Send Us Your Inquiry</h2>
+                    <form>
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="full-name" required>
+
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="phone-number">Phone Number</label>
+                        <input type="tel" id="phone-number" name="phone-number">
+
+                        <label for="message-content">Message Content</label>
+                        <textarea id="message-content" name="message-content" required></textarea>
+
+                        <button type="submit" class="btn-send">Send Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+    <!-- Floating Contact Buttons -->
+    <div class="fixed-contact-buttons">
+        <!-- WhatsApp Button: الرقم الصحيح للواتساب -->
+        <a href="https://wa.me/966500406056" target="_blank" class="floating-btn whatsapp-btn" aria-label="WhatsApp Us">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <!-- Phone Button: الرقم الصحيح للاتصال -->
+        <a href="tel:0500406056" class="floating-btn phone-btn" aria-label="Call Us">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+
+    <!-- ... (كود الفوتر) ... -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>AL-BADER International</h3>
+                    <p>Building tomorrow's infrastructure with innovation and trust. Your vision, our expertise.</p>
+                    <div class="footer-social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="en_projects.html">Projects</a></li>
+                        <li><a href="en_services.html">Services</a></li>
+                        <li><a href="en_about.html">About Us</a></li>
+                        <li><a href="en_contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-contact-info">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Riyadh, Kingdom of Saudi Arabia</p>
+                    <p><i class="fas fa-phone-alt"></i> +966 500 406 056</p>
+                    <p><i class="fas fa-envelope"></i> info@albadercontracting.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                &copy; <span id="current-year"></span> AL-BADER International Contracting. All Rights Reserved.
+                <p class="designer-note">Design & Development by [Your Name/Company]</p>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>
