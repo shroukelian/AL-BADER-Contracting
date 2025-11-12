@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl" class="rtl">
 
 <head>
     <meta charset="UTF-8">
@@ -104,32 +104,25 @@
 <body>
     <header>
         <div class="container header-container">
-            <!-- 1. الشعار -->
-            <div class="logo header-logo">
-                <a href="ar_home.html">
-                    <img src="images/logo-removebg-preview (3).png" alt="شعار البدر الدولية للمقاولات"
-                        style="height: 40px; width: auto;">
-                    <span>البدر الدولية للمقاولات</span>
-                </a>
-            </div>
-
-            <!-- 2. زر الهامبرغر -->
+            <!-- Header Content -->
+            <div class="logo header-logo"> <a href="ar_home.html"> <img src="images/logo-removebg-preview (3).png"
+                        alt="شعار البدر الدولية للمقاولات" style="height: 40px; width: auto;"> <span>البدر الدولية
+                        للمقاولات</span> </a> </div>
             <button class="hamburger-menu" aria-label="Toggle Navigation"><span class="bar"></span><span
                     class="bar"></span><span class="bar"></span></button>
-
-            <!-- 3. القائمة الرئيسية (الديسكتوب والموبايل) -->
             <div class="main-nav-wrapper">
                 <nav class="header-nav">
                     <ul>
                         <li><a href="index.html">الرئيسية</a></li>
                         <li><a href="ar_projects.html">مشاريعنا</a></li>
-                        <li><a href="ar_services.html">خدماتنا</a></li>
+                        <li><a href="ar_blog.html">مقالاتنا</a></li>
+                        <li ><a href="ar_services.html">خدماتنا</a></li>
                         <li><a href="ar_about.html">من نحن</a></li>
-                        <li  class="active"><a href="ar_contact.html">اتصل بنا</a></li>
+                        <li class="active"><a href="ar_contact.html">اتصل بنا</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions-group">
-                    <a href="en_projects.html" class="lang-btn">English</a>
+                    <a href="en_services.html" class="lang-btn">English</a>
                     <a href="ar_contact.html" class="consultation-btn">طلب استشارة </a>
                 </div>
             </div>
@@ -140,18 +133,19 @@
         <section class="page-section content-above-animation">
             <div class="container">
                 <h1 style="text-align: center;">تواصل مع فريق الخبراء لدينا</h1>
-                <p style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">نحن في انتظار مشروعك القادم. ابدأ رحلة التميز الآن.</p>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">نحن في انتظار مشروعك القادم.
+                    ابدأ رحلة التميز الآن.</p>
 
                 <!-- التخطيط المقسم (Grid) -->
                 <div class="contact-grid-layout">
-                    
+
                     <!-- العمود الأيمن (المعلومات) -->
                     <div class="contact-info-section">
                         <h2 style="color: var(--primary-color);">اتصل بنا</h2>
                         <h3 style="color: var(--accent-color); margin-top: 30px;">المكتب الرئيسي (الرياض)</h3>
-                        <p>الرياض، حي العقيق، شارع الأمير محمد بن سلمان.</p>
-                        <p><i class="fas fa-phone-alt"></i> 966 5 4845 6565+</p>
-                        <p><i class="fas fa-envelope"></i> info@albadercontracting.com</p>
+<p class="contact-address">الرياض، حي العقيق، شارع الأمير محمد بن سلمان.</p>
+<p class="contact-detail"><i class="fas fa-phone-alt"></i> 966 5 4845 6565+</p>
+<p class="contact-detail"><i class="fas fa-envelope"></i> info@albadercontracting.com</p>
 
                         <h3 style="color: var(--accent-color); margin-top: 30px;">مكتب المدينة المنورة</h3>
                         <p>المدينة المنورة، حي الراية، شارع زرعة بن عامر.</p>
@@ -161,20 +155,33 @@
 
                     <!-- العمود الأيسر (النموذج) -->
                     <div class="contact-form-container">
-                        <h2 style="color: var(--heading-color); text-align: center; margin-bottom: 40px;">أرسل استفسارك إلينا</h2>
+                        <h2 style="color: var(--heading-color); text-align: center; margin-bottom: 40px;">أرسل استفسارك
+                            إلينا</h2>
                         <form>
-                            <label for="full-name"style="display: block; margin-top: 15px; margin-bottom: 5px; color: var(--accent-color); font-weight: 600;">الاسم الكامل</label>
+                            <label for="full-name"
+                                style="display: block; margin-top: 15px; margin-bottom: 5px; color: var(--accent-color); font-weight: 600;">الاسم
+                                الكامل</label>
                             <input type="text" id="full-name" name="full-name" required>
-                            <input type="text" id="full-name" name="full-name" required style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid var(--heading-color); background-color: var(--bg-dark); color: var(--text-light);">
+                            <input type="text" id="full-name" name="full-name" required
+                                style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid var(--heading-color); background-color: var(--bg-dark); color: var(--text-light);">
 
-                            <label for="email" style="display: block; margin-top: 15px; margin-bottom: 5px; color: var(--accent-color); font-weight: 600;">البريد الإلكتروني</label>
-                            <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid var(--heading-color); background-color: var(--bg-dark); color: var(--text-light);">
+                            <label for="email"
+                                style="display: block; margin-top: 15px; margin-bottom: 5px; color: var(--accent-color); font-weight: 600;">البريد
+                                الإلكتروني</label>
+                            <input type="email" id="email" name="email" required
+                                style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid var(--heading-color); background-color: var(--bg-dark); color: var(--text-light);">
 
-                            <label for="phone-number" style="display: block; margin-top: 15px; margin-bottom: 5px; color: var(--accent-color); font-weight: 600;">رقم الهاتف</label>
-                            <input type="tel" id="phone-number" name="phone-number" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid var(--heading-color); background-color: var(--bg-dark); color: var(--text-light);">
+                            <label for="phone-number"
+                                style="display: block; margin-top: 15px; margin-bottom: 5px; color: var(--accent-color); font-weight: 600;">رقم
+                                الهاتف</label>
+                            <input type="tel" id="phone-number" name="phone-number"
+                                style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid var(--heading-color); background-color: var(--bg-dark); color: var(--text-light);">
 
-                            <label for="message-content" style="display: block; margin-top: 15px; margin-bottom: 5px; color: var(--accent-color); font-weight: 600;">محتوى الرسالة</label>
-                            <textarea id="message-content" name="message-content" required style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid var(--heading-color); background-color: var(--bg-dark); color: var(--text-light); min-height: 150px; resize: vertical;"></textarea>
+                            <label for="message-content"
+                                style="display: block; margin-top: 15px; margin-bottom: 5px; color: var(--accent-color); font-weight: 600;">محتوى
+                                الرسالة</label>
+                            <textarea id="message-content" name="message-content" required
+                                style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid var(--heading-color); background-color: var(--bg-dark); color: var(--text-light); min-height: 150px; resize: vertical;"></textarea>
 
                             <button type="submit" class="btn-send">إرسال الطلب</button>
                         </form>
@@ -212,6 +219,7 @@
                     <h3>روابط سريعة</h3>
                     <ul style="padding-right: 0;">
                         <li><a href="ar_projects.html">مشاريعنا</a></li>
+                        <li><a href="ar_blog.html">مقالاتنا</a></li>
                         <li><a href="ar_services.html">خدماتنا</a></li>
                         <li><a href="ar_about.html">من نحن</a></li>
                         <li><a href="ar_contact.html">اتصل بنا</a></li>

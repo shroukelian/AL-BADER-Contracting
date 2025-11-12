@@ -1,40 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | MKT Contracting</title>
-    <meta name="description" content="MKT was founded in 2019 by Mr. Mohammed Thuwaini. We are committed to high-quality performance and specialized industrial contracting in Riyadh, Saudi Arabia.">
+    <meta name="description"
+        content="MKT was founded in 2019 by Mr. Mohammed Thuwaini. We are committed to high-quality performance and specialized industrial contracting in Riyadh, Saudi Arabia.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        .about-item { background-color: var(--nav-bg); padding: 30px; border-radius: 10px; text-align: left; }
-        .about-item h3 { color: var(--primary-color); margin-top: 0; }
-        .about-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 30px; text-align: center; }
+        .about-item {
+            background-color: var(--nav-bg);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .about-item i {
+            display: block;
+            /* لجعل الأيقونة تأخذ سطر كامل للتوسيط */
+            margin-bottom: 10px;
+            /* مسافة بين الأيقونة والعنوان */
+            /* تأكد من إزالة أي margin-right سابقاً */
+        }
+
+        .about-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .about-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+            text-align: center;
+        }
     </style>
 </head>
+
 <body>
-       <header>
+    <header>
         <div class="container header-container">
             <!-- 1. الشعار -->
             <div class="logo header-logo">
                 <a href="en_home.html">
-                    <img src="images/logo-removebg-preview (3).png" alt="AL-Bader Aldawlih For contracting Logo" style="height: 40px; width: auto;">
+                    <img src="images/logo-removebg-preview (3).png" alt="AL-Bader Aldawlih For contracting Logo"
+                        style="height: 40px; width: auto;">
                     <span>AL-BADER International Contracting</span>
                 </a>
             </div>
-            
+
             <!-- 2. زر الهامبرغر -->
-            <button class="hamburger-menu" aria-label="Toggle Navigation"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
-            
+            <button class="hamburger-menu" aria-label="Toggle Navigation"><span class="bar"></span><span
+                    class="bar"></span><span class="bar"></span></button>
+
             <!-- 3. القائمة الرئيسية (والمنسدلة للموبايل) -->
             <div class="main-nav-wrapper">
                 <nav class="header-nav">
                     <ul>
                         <li><a href="en_index.html">Home</a></li>
                         <li><a href="en_projects.html">Projects</a></li>
-                        <li ><a href="en_services.html">Services</a></li>
+                        <li><a href="en_blog.html">Blog</a></li>
+                        <li><a href="en_services.html">Services</a></li>
                         <li class="active"><a href="en_about.html">About Us</a></li>
                         <li><a href="en_contact.html">Contact Us</a></li>
                     </ul>
@@ -52,44 +82,74 @@
         <section class="page-section content-above-animation" style="padding-top: 120px;">
             <div class="container">
                 <h1 style="text-align: center;">The Story of MKT and Our Commitment to Quality</h1>
-                <p style="text-align: center; color: var(--heading-color);">Founded in 2019, we drive excellence and trust in specialized building protection.</p>
-                
+                <p style="text-align: center; color: var(--heading-color);">Founded in 2019, we drive excellence and
+                    trust in specialized building protection.</p>
+
                 <!-- Who We Are -->
-                <div style="background-color: var(--nav-bg); padding: 40px; border-radius: 10px; margin-top: 50px; text-align: left;">
+                <div
+                    style="background-color: var(--nav-bg); padding: 40px; border-radius: 10px; margin-top: 50px; text-align: left;">
                     <h2 style="color: var(--heading-color);">Who We Are</h2>
-                    <p>MKT was founded in 2019 by Mr. Mohammed Thuwaini. We uphold the values upon which we were established, maintaining a commitment to high-quality performance and outstanding customer service.</p>
-                    <p>We have witnessed significant growth in the building protection sector across Saudi Arabia, successfully establishing MKT as a prominent industrial contracting firm in Riyadh. Our acquired experience allows us to provide a superior level of service and craftsmanship.</p>
+                    <p>MKT was founded in 2019 by Mr. Mohammed Thuwaini. We uphold the values upon which we were
+                        established, maintaining a commitment to high-quality performance and outstanding customer
+                        service.</p>
+                    <p>We have witnessed significant growth in the building protection sector across Saudi Arabia,
+                        successfully establishing MKT as a prominent industrial contracting firm in Riyadh. Our acquired
+                        experience allows us to provide a superior level of service and craftsmanship.</p>
                 </div>
 
                 <!-- Vision & Mission -->
                 <div class="about-grid-3">
-                    <div class="about-item vision-mission-item" style="text-align: left;">
-                        <i class="fas fa-eye" style="font-size: 3em; color: var(--accent-color); margin-right: 15px;"></i>
+                    <!-- **تم إزالة style="text-align: left;"** -->
+                    <div class="about-item vision-mission-item">
+                        <!-- **تم إزالة style="...; margin-right: 15px;" من الأيقونة** -->
+                        <i class="fas fa-eye" style="font-size: 3em; color: var(--accent-color);"></i>
                         <h3 style="color: var(--primary-color);">Vision</h3>
-                        <p>To provide integrated solutions for local and international companies, delivered with unmatched service by a cooperative and dedicated team.</p>
+                        <p>To provide integrated solutions for local and international companies, delivered with
+                            unmatched service by a cooperative and dedicated team.</p>
                     </div>
-                    <div class="about-item vision-mission-item" style="text-align: left;">
-                        <i class="fas fa-bullseye" style="font-size: 3em; color: var(--primary-color); margin-right: 15px;"></i>
+                    <!-- **تم إزالة style="text-align: left;"** -->
+                    <div class="about-item vision-mission-item">
+                        <!-- **تم إزالة style="...; margin-right: 15px;" من الأيقونة** -->
+                        <i class="fas fa-bullseye" style="font-size: 3em; color: var(--primary-color);"></i>
                         <h3 style="color: var(--primary-color);">Mission</h3>
-                        <p>To create an environment that fully meets clients' needs and expectations without compromising our high standards of quality and service excellence.</p>
+                        <p>To create an environment that fully meets clients' needs and expectations without
+                            compromising our high standards of quality and service excellence.</p>
                     </div>
                 </div>
-                
+
                 <!-- Core Values -->
                 <h2 style="text-align: center; margin-top: 60px;">Our Core Values</h2>
                 <div class="about-grid-3" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
-                    <div class="about-item" style="text-align: center;"><i class="fas fa-check" style="color: var(--accent-color); margin-bottom: 5px;"></i><h3 style="font-size: 1.4em;">Commitment</h3></div>
-                    <div class="about-item" style="text-align: center;"><i class="fas fa-handshake" style="color: var(--accent-color); margin-bottom: 5px;"></i><h3 style="font-size: 1.4em;">Integrity</h3></div>
-                    <div class="about-item" style="text-align: center;"><i class="fas fa-medal" style="color: var(--accent-color); margin-bottom: 5px;"></i><h3 style="font-size: 1.4em;">Honesty</h3></div>
-                    <div class="about-item" style="text-align: center;"><i class="fas fa-lightbulb" style="color: var(--accent-color); margin-bottom: 5px;"></i><h3 style="font-size: 1.4em;">Innovation</h3></div>
-                    <div class="about-item" style="text-align: center;"><i class="fas fa-shield-alt" style="color: var(--accent-color); margin-bottom: 5px;"></i><h3 style="font-size: 1.4em;">Reliability</h3></div>
-                    <div class="about-item" style="text-align: center;"><i class="fas fa-star" style="color: var(--accent-color); margin-bottom: 5px;"></i><h3 style="font-size: 1.4em;">Excellence</h3></div>
+                    <div class="about-item" style="text-align: center;"><i class="fas fa-check"
+                            style="color: var(--accent-color); margin-bottom: 5px;"></i>
+                        <h3 style="font-size: 1.4em;">Commitment</h3>
+                    </div>
+                    <div class="about-item" style="text-align: center;"><i class="fas fa-handshake"
+                            style="color: var(--accent-color); margin-bottom: 5px;"></i>
+                        <h3 style="font-size: 1.4em;">Integrity</h3>
+                    </div>
+                    <div class="about-item" style="text-align: center;"><i class="fas fa-medal"
+                            style="color: var(--accent-color); margin-bottom: 5px;"></i>
+                        <h3 style="font-size: 1.4em;">Honesty</h3>
+                    </div>
+                    <div class="about-item" style="text-align: center;"><i class="fas fa-lightbulb"
+                            style="color: var(--accent-color); margin-bottom: 5px;"></i>
+                        <h3 style="font-size: 1.4em;">Innovation</h3>
+                    </div>
+                    <div class="about-item" style="text-align: center;"><i class="fas fa-shield-alt"
+                            style="color: var(--accent-color); margin-bottom: 5px;"></i>
+                        <h3 style="font-size: 1.4em;">Reliability</h3>
+                    </div>
+                    <div class="about-item" style="text-align: center;"><i class="fas fa-star"
+                            style="color: var(--accent-color); margin-bottom: 5px;"></i>
+                        <h3 style="font-size: 1.4em;">Excellence</h3>
+                    </div>
                 </div>
 
             </div>
         </section>
     </main>
-<!-- Floating Contact Buttons -->
+    <!-- Floating Contact Buttons -->
     <div class="fixed-contact-buttons">
         <!-- WhatsApp Button: الرقم الصحيح للواتساب -->
         <a href="https://wa.me/966500406056" target="_blank" class="floating-btn whatsapp-btn" aria-label="WhatsApp Us">
@@ -100,7 +160,7 @@
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
-<footer>
+    <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -117,6 +177,7 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="en_projects.html">Projects</a></li>
+                        <li><a href="en_blog.html">Blog</a></li>
                         <li><a href="en_services.html">Services</a></li>
                         <li><a href="en_about.html">About Us</a></li>
                         <li><a href="en_contact.html">Contact Us</a></li>
@@ -139,4 +200,5 @@
     </footer>
     <script src="main.js"></script>
 </body>
+
 </html>

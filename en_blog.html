@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL-BADER Blog | Expert Insights in Engineering and Contracting</title>
+    <meta name="description" content="Discover our latest articles and insights on modern engineering, contracting, sustainability, and construction techniques in Saudi Arabia.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Using inline style for the blog section to keep the main style.css clean for global styles -->
+    <style>
+        .blog-section { padding: 80px 0; }
+        .blog-section h2 { 
+            font-size: 2.5em; 
+            color: var(--heading-color); 
+            text-align: center; 
+            margin-bottom: 50px; 
+            font-weight: 900;
+        }
+        .blog-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .blog-card {
+            background-color: var(--nav-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .blog-card:hover { transform: translateY(-5px); }
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .blog-content { padding: 20px; }
+        .blog-content h3 { 
+            color: var(--text-light); 
+            font-size: 1.5em; 
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .blog-content p { color: #ccc; font-size: 0.9em; line-height: 1.6; }
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+        .read-more:hover { color: var(--accent-color); }
+
+        /* Mobile Fix */
+        @media (max-width: 600px) {
+            .blog-section h2 { font-size: 2em; }
+            .blog-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Code from en_home.html -->
+    <header>
+    <div class="container header-container">
+        
+        <!-- 1. Logo -->
+        <div class="logo header-logo">
+            <a href="en_home.html">
+                <img src="images/logo-removebg-preview (3).png" alt="AL-Bader Aldawlih For contracting Logo">
+                <span>AL-BADER International Contracting</span>
+            </a>
+        </div>
+        
+        <!-- 2. Hamburger Menu (Mobile) -->
+        <button class="hamburger-menu" aria-label="Toggle Navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        
+        <!-- 3. Main Navigation Wrapper -->
+        <div class="main-nav-wrapper">
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="en_index.html">Home</a></li>
+                    <li><a href="en_projects.html">Projects</a></li>
+                    <li class="active"><a href="en_blog.html">Blog</a></li> <!-- Active here -->
+                    <li><a href="en_services.html">Services</a></li>
+                    <li><a href="en_about.html">About Us</a></li>
+                    <li><a href="en_contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Action Buttons -->
+            <div class="header-actions-group">
+                <a href="ar_home.html" class="lang-btn">العربية</a>
+                <a href="en_contact.html" class="consultation-btn">Get Free Consultation</a>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <main>
+        <section class="blog-section">
+            <div class="container">
+                <h2>Our Latest Articles & Insights</h2>
+                
+                <div class="blog-list">
+                    
+                    <!-- The requested post -->
+                    <article class="blog-card">
+                        <img src="images/مقال 1.jpeg" alt="Modern Engineering Image">
+                        <div class="blog-content">
+                            <h3>Modern Engineering: AL-BADER's Path to Contracting Excellence</h3>
+                            <p>In a world of rapid technical advancement, success in contracting relies not only on traditional expertise but also on innovation and adherence to global quality standards...</p>
+                            <a href="en_post-modern-engineering.html" class="read-more">Read More &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Dummy post 2 -->
+                    <article class="blog-card">
+                        <img src="images/مقال 1.jpeg" alt="Sustainability Image">
+                        <div class="blog-content">
+                            <h3>The Role of Sustainability in Vision 2030 Projects</h3>
+                            <p>AL-BADER International Contracting is committed to environmental and social responsibility by adopting sustainable, eco-friendly engineering practices...</p>
+                            <a href="#" class="read-more">Read More &rarr;</a>
+                        </div>
+                    </article>
+
+                    <!-- Dummy post 3 -->
+                    <article class="blog-card">
+                        <img src="images/مقال 1.jpeg" alt="Technology Image">
+                        <div class="blog-content">
+                            <h3>Digital Technologies: A Revolution in Construction Project Management</h3>
+                            <p>In this article, we discuss how we integrate the latest engineering systems into our operations to ensure consistent and sustainable quality...</p>
+                            <a href="#" class="read-more">Read More &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+<footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>AL-BADER International</h3>
+                    <p>Building tomorrow's infrastructure with innovation and trust. Your vision, our expertise.</p>
+                    <div class="footer-social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="en_projects.html">Projects</a></li>
+                        <li><a href="en_blog.html">Blog</a></li>
+                        <li><a href="en_services.html">Services</a></li>
+                        <li><a href="en_about.html">About Us</a></li>
+                        <li><a href="en_contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-contact-info">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Riyadh, Kingdom of Saudi Arabia</p>
+                    <p><i class="fas fa-phone-alt"></i> +966 500 406 056</p>
+                    <p><i class="fas fa-envelope"></i> info@albadercontracting.com</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                &copy; <span id="current-year">2024</span> AL-BADER International Contracting. All Rights Reserved.
+                <p class="designer-note">Design & Development by [Your Name/Company]</p>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

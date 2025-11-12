@@ -11,23 +11,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Contact Page Specific Styles (for the ADSS layout replication) */
+        /* Contact Page Specific Styles */
         .contact-grid-layout {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            /* Info on Left, Form on Right */
+            /* Info on Left (1fr), Form on Right (1.5fr) for LTR */
+            grid-template-columns: 1fr 1.5fr; 
             gap: 60px;
             margin-top: 50px;
             align-items: center;
-            /* لمحاذاة الصندوقين عمودياً */
         }
 
         .contact-info-section {
             padding: 30px 0;
+            text-align: left; /* LTR Default */
         }
 
         .contact-info-section h2 {
-            color: var(--text-light);
+            color: var(--primary-color);
             margin-bottom: 20px;
         }
 
@@ -35,6 +35,19 @@
             color: var(--accent-color);
             margin-top: 30px;
         }
+        
+        .contact-info-section p {
+            display: flex; /* لترتيب الأيقونات والنصوص */
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info-section i {
+            color: var(--accent-color);
+            font-size: 1.1em;
+        }
+
 
         .contact-form-container {
             background-color: var(--nav-bg);
@@ -48,10 +61,10 @@
             display: block;
             margin-top: 15px;
             margin-bottom: 5px;
-            color: var(--text-light);
-            /* Labels are light */
+            color: var(--accent-color); 
             font-weight: 600;
             font-size: 1.1em;
+            text-align: left; /* LTR */
         }
 
         .contact-form-container input[type="text"],
@@ -63,8 +76,9 @@
             border-radius: 6px;
             border: 1px solid var(--heading-color);
             background-color: var(--bg-dark);
-            /* Inputs are dark */
             color: var(--text-light);
+            /* لضمان أن النص يبدأ من اليسار لـ LTR */
+            text-align: left; 
         }
 
         .contact-form-container textarea {
@@ -73,7 +87,6 @@
         }
 
         .btn-send {
-            /* Gradient Button Style - Mimicking ADSS */
             background: linear-gradient(135deg, #7A5AF8, #5AF8A6);
             border: none;
             color: white;
@@ -82,14 +95,27 @@
             margin-top: 20px;
             font-weight: 700;
             cursor: pointer;
-            float: right;
-            /* Button to the right (LTR) */
+            float: left; /* **تعديل: زر الإرسال على اليسار لـ LTR** */
             transition: opacity 0.3s;
         }
 
         .btn-send:hover {
             opacity: 0.9;
         }
+        
+        /* --- Google Map Section Styling --- */
+        .map-section {
+            padding: 30px 0;
+        }
+        .map-embed-container iframe {
+            display: block;
+            width: 100%;
+            height: 450px;
+            border: 0; 
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
@@ -97,114 +123,125 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+            .contact-info-section {
+                text-align: center;
+            }
+            .contact-info-section p {
+                justify-content: center; /* توسيط معلومات الاتصال في الموبايل */
+            }
+            .btn-send {
+                /* توسيط زر الإرسال في الموبايل */
+                float: none; 
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+            .map-embed-container iframe {
+                height: 300px;
+            }
         }
     </style>
 </head>
 
 <body>
     <header>
-    <div class="container header-container">
-        <!-- 1. الشعار -->
-        <div class="logo header-logo">
-            <a href="en_home.html">
-                <img src="images/logo-removebg-preview (3).png" alt="AL-Bader Aldawlih For contracting Logo" style="height: 40px; width: auto;">
-                <span>AL-BADER International Contracting</span>
-            </a>
-        </div>
-        
-        <!-- 2. زر الهامبرغر (للموبايل) -->
-        <button class="hamburger-menu" aria-label="Toggle Navigation">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        
-        <!-- 3. القائمة الرئيسية (والمنسدلة للموبايل) -->
-        <!-- هذا العنصر هو الذي كان مفقوداً أو محذوفاً -->
-        <div class="main-nav-wrapper">
-            <nav class="header-nav">
-                <ul>
-                    <li><a href="en_index.html">Home</a></li>
-                    <li><a href="en_projects.html">Projects</a></li>
-                    <li><a href="en_services.html">Services</a></li>
-                    <li><a href="en_about.html">About Us</a></li>
-                    <li class="active"><a href="en_contact.html">Contact Us</a></li>
-                </ul>
-            </nav>
-            
-            <!-- أزرار الإجراءات (تظهر في الديسكتوب وتُكرر في القائمة المنسدلة للموبايل) -->
-            <div class="header-actions-group">
-                <a href="ar_contact.html" class="lang-btn">العربية</a>
-                <a href="en_contact.html" class="consultation-btn">Get Consultation</a>
+        <div class="container header-container">
+            <!-- Header Content -->
+            <div class="logo header-logo"> 
+                <a href="en_home.html"> 
+                    <img src="images/logo-removebg-preview (3).png" alt="AL-BADER International Contracting Logo"
+                        style="height: 40px; width: auto;"> 
+                    <span>AL-BADER International Contracting</span> 
+                </a> 
+            </div>
+            <button class="hamburger-menu" aria-label="Toggle Navigation"><span class="bar"></span><span
+                    class="bar"></span><span class="bar"></span></button>
+            <div class="main-nav-wrapper">
+                <nav class="header-nav">
+                    <ul>
+                        <li><a href="en_home.html">Home</a></li>
+                        <li><a href="en_projects.html">Projects</a></li>
+                        <li><a href="en_blog.html">Blog</a></li>
+                        <li><a href="en_services.html">Services</a></li>
+                        <li><a href="en_about.html">About Us</a></li>
+                        <li class="active"><a href="en_contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions-group">
+                    <a href="ar_contact.html" class="lang-btn">العربية</a>
+                    <a href="en_contact.html" class="consultation-btn">Get Consultation </a>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
+    <main>
+        <div id="particles-js"></div>
+        <section class="page-section content-above-animation" style="padding-top: 120px;">
+            <div class="container">
+                <h1 style="text-align: center;">Connect with Our Expert Team</h1>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">We are ready for your next project. Begin your journey to excellence now.</p>
 
+                <!-- Grid Layout: Info on Left, Form on Right -->
+                <div class="contact-grid-layout">
 
-   <main>
-    <div id="particles-js"></div>
-    <section class="page-section content-above-animation">
-        <div class="container">
-            <!-- العنوان الرئيسي -->
-            <h1 style="text-align: center;">Get in Touch With Our Experts</h1>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">We are waiting for your next project. Start your journey with excellence today.</p>
+                   <!-- Left Column (Info) -->
+                    <div class="contact-info-section">
+                        <h2 style="color: var(--primary-color);text-align: center;">Contact Info</h2>
+                        <!-- البيانات الجديدة -->
+                        <p class="contact-address"><i class="fas fa-map-marker-alt"></i> Riyadh, Kingdom Of Saudi Arbia, Al-Malaz, Ibn Zaydoun Street</p>
+                        <p class="contact-detail"><i class="fas fa-phone-alt"></i> 0548442666</p>
+                        <p class="contact-detail"><i class="fas fa-envelope"></i> albader.aldawlih@outlook.com</p>
+                        <!-- تم حذف بيانات الفروع الأخرى -->
+                    </div>
 
-            <!-- التخطيط المقسم (Grid) -->
-            <div class="contact-grid-layout">
+                    <!-- Right Column (Form) -->
+                    <div class="contact-form-container">
+                        <h2 style="color: var(--heading-color); text-align: center; margin-bottom: 40px;">Send Us Your Inquiry</h2>
+                        <form>
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" name="full-name" required>
+
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+
+                            <label for="phone-number">Phone Number</label>
+                            <input type="tel" id="phone-number" name="phone-number">
+
+                            <label for="message-content">Message Content</label>
+                            <textarea id="message-content" name="message-content" required></textarea>
+
+                            <button type="submit" class="btn-send">Send Inquiry</button>
+                        </form>
+                    </div>
+                </div>
                 
-                <!-- العمود الأيسر (المعلومات) -->
-                <div class="contact-info-section">
-                    <!-- ... محتوى معلومات الاتصال ... -->
-                    <h2 style="color: var(--primary-color);">Contact Us</h2>
-                    <h3 style="color: var(--accent-color); margin-top: 30px;">KSA, Riyadh Office</h3>
-                    <p style="margin-bottom: 5px;">Riyadh, Al-Aqiq District, Prince Mohammed bin Salman St.</p>
-                    <p><i class="fas fa-phone-alt" style="color: var(--accent-color); margin-right: 10px;"></i> +966 5 4845 6565</p>
-                    <p><i class="fas fa-envelope" style="color: var(--accent-color); margin-right: 10px;"></i> info@albadercontracting.com</p>
-
-                    <h3 style="color: var(--accent-color); margin-top: 30px;">KSA, Al-Madinah Al-Munawwarah</h3>
-                    <p style="margin-bottom: 5px;">Al-Madina Al-Munawwarah, Al-Rayah District, Zarrah Ibn Amir Street St.</p>
-                    <p><i class="fas fa-phone-alt" style="color: var(--accent-color); margin-right: 10px;"></i> +966 5 6110 0675</p>
-                    <p><i class="fas fa-envelope" style="color: var(--accent-color); margin-right: 10px;"></i> info.madinah@albadercontracting.com</p>
+                <!-- **Map Section (Outside the Grid)** -->
+                <div class="map-section">
+                    <h2 style="text-align: center; color: var(--heading-color); margin-top: 60px; margin-bottom: 30px;">Our Location on the Map</h2>
+                    <div class="map-embed-container">
+                        <!-- Using the provided map coordinates -->
+                        <iframe
+                            src="https://maps.google.com/maps?q=24.667098999023438,46.73134994506836&z=17&hl=en&output=embed"
+                            width="100%" height="450" style="border:0;" allowfullscreen=""
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
                 </div>
+                <!-- **End of Map Section** -->
 
-                <!-- العمود الأيمن (النموذج) -->
-                <div class="contact-form-container">
-                    <h2 style="color: var(--heading-color); text-align: center; margin-bottom: 40px;">Send Us Your Inquiry</h2>
-                    <form>
-                        <label for="full-name">Full Name</label>
-                        <input type="text" id="full-name" name="full-name" required>
-
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" required>
-
-                        <label for="phone-number">Phone Number</label>
-                        <input type="tel" id="phone-number" name="phone-number">
-
-                        <label for="message-content">Message Content</label>
-                        <textarea id="message-content" name="message-content" required></textarea>
-
-                        <button type="submit" class="btn-send">Send Inquiry</button>
-                    </form>
-                </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
     <!-- Floating Contact Buttons -->
     <div class="fixed-contact-buttons">
-        <!-- WhatsApp Button: الرقم الصحيح للواتساب -->
         <a href="https://wa.me/966500406056" target="_blank" class="floating-btn whatsapp-btn" aria-label="WhatsApp Us">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <!-- Phone Button: الرقم الصحيح للاتصال -->
         <a href="tel:0500406056" class="floating-btn phone-btn" aria-label="Call Us">
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
-
-    <!-- ... (كود الفوتر) ... -->
-    <footer>
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -221,6 +258,7 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="en_projects.html">Projects</a></li>
+                        <li><a href="en_blog.html">Blog</a></li>
                         <li><a href="en_services.html">Services</a></li>
                         <li><a href="en_about.html">About Us</a></li>
                         <li><a href="en_contact.html">Contact Us</a></li>
@@ -236,12 +274,13 @@
             </div>
 
             <div class="copyright">
-                &copy; <span id="current-year"></span> AL-BADER International Contracting. All Rights Reserved.
+                &copy; <span id="current-year">2024</span> AL-BADER International Contracting. All Rights Reserved.
                 <p class="designer-note">Design & Development by [Your Name/Company]</p>
             </div>
         </div>
     </footer>
     <script src="main.js"></script>
+
 </body>
 
 </html>

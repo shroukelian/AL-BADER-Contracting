@@ -453,9 +453,7 @@ footer a:hover {
     margin-left: 10px;
     margin-right: 0;
 }
-.rtl .footer-social-links {
-    justify-content: flex-start; /* الأيقونات على اليمين */
-}
+
 /* --- RTL Adjustments for Footer --- */
 .rtl footer {
     text-align: right;
@@ -1143,18 +1141,27 @@ footer a:hover {
 
 /* --- MOBILE RESPONSIVE FIXES --- */
 @media (max-width: 992px) {
-    /* ... (تنسيقات القائمة المنسدلة) ... */
+.service-card {
+    text-align: center; 
+}
+.service-card img {
+    display: block;
+    margin: 0 auto;
+}
+.service-card ul {
+    display: inline-block;
+    text-align: right;
+    list-style-position: inside;
+}
 }
 
 @media (max-width: 768px) {
-    /* --- التكدس العمودي لصفحة الاتصال (Contact Us) --- */
     .contact-grid-layout { 
-        grid-template-columns: 1fr; /* عمود واحد فقط للموبايل */
+        grid-template-columns: 1fr;
         gap: 30px; 
         padding: 0 15px; 
     }
     
-    /* توسيط جميع العناوين والنصوص في وضع الموبايل */
     .contact-info-section {
         text-align: center !important;
         padding: 0;
@@ -1163,28 +1170,26 @@ footer a:hover {
         text-align: center;
     }
     .contact-info-section p {
-        justify-content: center !important; /* توسيط الأيقونة والنص */
+        justify-content: center !important; 
         flex-direction: row-reverse; 
     }
     
     /* تنسيق النموذج ليأخذ مساحة مناسبة */
     .contact-form-container {
-        /* توسيط كل محتوى القسم */
         text-align: center; 
-        margin: 0 auto; /* توسيط الحاوية نفسها */
-        max-width: 95%; /* تحديد عرض أقصى للحاوية */
+        margin: 0 auto; 
+        max-width: 95%; 
         box-sizing: border-box;
     }
-    /* توسيط التسميات والحقول في وضع الموبايل */
     .contact-form-container label {
         text-align: center; 
         width: 100%;
         margin-top: 10px;
     }
     .contact-form-container input, .contact-form-container textarea {
-        width: 90%; /* **تحديد العرض أقل من 100%** */
-        margin: 5px auto 15px auto; /* توسيط الحقل أفقيًا */
-        display: block; /* لتمكين الـ margin: auto */
+        width: 90%; 
+        margin: 5px auto 15px auto; 
+        display: block; 
         box-sizing: border-box;
     }
     .contact-form-container h2 {
@@ -1214,71 +1219,64 @@ footer a:hover {
 /* 2. إصلاح النص في عمود المعلومات (Left/Info Column) */
 .contact-info-section { 
     padding: 30px 0; 
-    text-align: left; /* LTR: يجب أن يكون محاذياً لليسار */
-    color: var(--text-light); /* للتأكد من لون النص */
+    text-align: left; 
+    color: var(--text-light); 
 }
 .contact-info-section h2 { 
     color: var(--primary-color);
-    text-align: left; /* LTR: يجب أن يكون محاذياً لليسار */
+    text-align: right; 
 }
 .contact-info-section h3 { 
     color: var(--accent-color); 
-    text-align: left; /* LTR: يجب أن يكون محاذياً لليسار */
+    text-align: left; 
 }
 .contact-info-section p {
-    /* LTR: محاذاة لليسار */
-    flex-direction: row; 
-    justify-content: flex-start;
+    text-align: right;
+    display: block; 
 }
 
 /* 3. إصلاح عمود المعلومات في RTL (لتكديس الأسطر تحت بعضها) */
 .rtl .contact-info-section p {
-    /* RTL: محاذاة لليمين */
     flex-direction: row-reverse; 
     justify-content: flex-end;
 }
 @media (max-width: 768px) {
     /* ... (تنسيقات أخرى) ... */
     
-    /* 1. إصلاح قسم معلومات الاتصال في الموبايل */
     .contact-info-section {
-        padding: 20px; /* تباعد داخلي جيد */
-        text-align: center !important; /* توسيط كل محتوى القسم */
+        padding: 20px; 
+        text-align: center !important; 
     }
     
     .contact-info-section h3 {
-        text-align: center !important; /* توسيط عنوان المكتب */
+        text-align: center !important; 
         font-size: 1.5em;
     }
 
     /* 2. تنسيق كل سطر في معلومات الاتصال */
     .contact-info-section p {
-        display: block !important; /* جعل كل سطر يظهر ككتلة */
-        text-align: center !important; /* توسيط النص */
-        margin-bottom: 10px; /* تباعد بين الأسطر */
+        display: block !important; 
+        text-align: center !important; 
+        margin-bottom: 10px; 
     }
     
-    /* 3. تنسيق الأيقونة (للتوسيط والتكبير) */
     .contact-info-section p i {
-        /* إزالة الـ flexbox وتوسيط الأيقونة */
         display: block; 
         margin: 0 auto 5px auto; 
-        font-size: 1.8em; /* تكبير الأيقونات */
-        /* إلغاء أي هامش يمين أو يسار قديم */
+        font-size: 1.8em; 
         margin-left: 0 !important; 
         margin-right: 0 !important;
     }
     
-    /* 4. تنسيق النصوص داخل الـ <p> */
     .contact-info-section p span {
-        display: block; /* لجعل النص أسفل الأيقونة أو في سطر جديد */
+        display: block; 
     }
 }
 @media (max-width: 576px) {
     /* ... (تنسيقات أخرى) ... */
     
     .project-grid { 
-        grid-template-columns: 1fr; /* عمود واحد */
+        grid-template-columns: 1fr; 
         gap: 20px;
         padding: 0 10px; /* إضافة تباعد حول الشبكة نفسها */
     }
@@ -1303,4 +1301,68 @@ footer a:hover {
     }
     
     /* ... (باقي التنسيقات) ... */
+}
+.service-card {
+    background-color: var(--nav-bg);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    /* ************** الإضافة الرئيسية للتوسيط ************** */
+    text-align: center; 
+    /* ****************************************************** */
+}
+/* التعديل المقترح: توسيط العناوين الرئيسية فقط وإبقاء النص محاذياً لليمين */
+
+/* تنسيق عام للعناوين لجعلها متوسطة */
+.service-card h3,
+.service-card h3 + p { /* إذا كانت الفقرة تحت العنوان مباشرةً */
+    text-align: center;
+}
+
+/* محتوى الخدمة الرئيسي (النص والتعداد) يبقى محاذياً لليمين كما في RTL */
+.service-card .service-description {
+    text-align: right; 
+    /* هذا هو النص الرئيسي */
+}
+
+.service-card ul {
+    /* التأكد من أن القائمة تظهر بشكل صحيح في RTL */
+    text-align: right; 
+    list-style-position: inside; /* لجعل علامات القائمة تظهر داخل حدود النص */
+    padding-right: 0;
+}
+
+
+/* --- Google Map Section Styling --- */
+
+/* حاوية الخريطة للتأكد من أنها لا تتأثر بالصفحة */
+.map-section {
+    padding: 30px 0;
+}
+
+/* حاوية الـ iframe للتجاوبية */
+.map-embed-container {
+    position: relative;
+    padding-bottom: 56.25%; /* نسبة 16:9 - يمكن تغييرها حسب الارتفاع المطلوب */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: var(--nav-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.map-embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* تعديل ارتفاع الـ iframe ليناسب التخطيط الذي استخدمته أنت في الـ HTML مباشرةً */
+.map-embed-container iframe[height="450"] {
+    /* لإلغاء خاصية padding-bottom إذا كنت تفضل تحديد الارتفاع بالبكسل */
+    height: 450px !important;
+    position: static;
 }
