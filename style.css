@@ -9,6 +9,9 @@
     /* **تفتيح لون خلفية الناف بار بشكل أكبر** (من #313150 إلى #404068) */
     --nav-bg: #404068;        /* Lighter Nav/Card Background */
 }
+main {
+    padding-top: 80px;
+}
 body {
     font-family: 'Cairo', sans-serif;
     background-color: var(--bg-dark);
@@ -31,7 +34,7 @@ html {
 
 /* --- Header Styling (Desktop Default) --- */
 header {
-    background-color: rgba (var(--nav-bg), 0.95);
+    background-color: rgba (var(--nav-bg));
     padding: 10px 0;
     position: fixed;
     width: 100%;
@@ -112,6 +115,7 @@ header .container {
     align-items: center;
     gap: 20px;
     /* مسافة بين الروابط والأزرار */
+    
 }
 
 /* Nav Links */
@@ -172,14 +176,14 @@ main {
 }
 
 .hero-section {
-    min-height: 90vh;
+    min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding-top: 20px;
+    padding-top: 0px;
     /* القيمة الجديدة: 80px (من main) + 20px (من section) = 100px total */
-    padding-bottom: 80px;
+    padding-bottom: 50px;
     text-align: left;
     /* LTR default */
 }
@@ -316,6 +320,9 @@ html:not([dir="rtl"]) .fixed-contact-buttons {
 
     .hero-section {
         text-align: center !important;
+        min-height: auto !important; 
+        padding-bottom: 60px !important; /* تقليل البادينغ السفلي */
+        padding-top: 100px !important;
     }
 
     .rtl .hero-section {
@@ -365,7 +372,8 @@ html:not([dir="rtl"]) .fixed-contact-buttons {
         /* أسفل الهيدر مباشرة */
         left: 0;
         width: 100%;
-        background-color: rgba(var(--nav-bg), 0.95);
+        /* **التعديل هنا:** استخدام var(--nav-bg) مباشرة لجعل الخلفية صلبة */
+        background-color: var(--nav-bg); 
         flex-direction: column;
         /* العناصر تحت بعض */
         align-items: center;
@@ -1036,6 +1044,10 @@ footer a:hover {
 
 /* 2. تعديل الموبايل (لتصغير حجم الأزرار في شاشات أصغر) */
 @media (max-width: 576px) {
+    .page-section {
+        /* تقليل البادينغ العلوي والسفلي في الموبايل */
+        padding: 40px 0; 
+    }
     .fixed-contact-buttons {
         bottom: 20px;
         left: 20px;
@@ -1507,6 +1519,13 @@ footer a:hover {
 
 /* --- MOBILE RESPONSIVE FIXES --- */
 @media (max-width: 992px) {
+    .page-section {
+        /* تقليل البادينغ العلوي والسفلي في الموبايل */
+        padding: 50px 0; 
+    }
+    .content-above-animation {
+        padding-top: 50px !important; /* لتوحيدها مع الأقسام الأخرى في الموبايل */
+    }
     
     .service-card {
         text-align: center;
@@ -1770,5 +1789,12 @@ footer a:hover {
 
 .clients-logo-grid-custom img:hover {
     transform: scale(1.05);
+}
+/* معالجة البادينغ العلوي لقسم فلسفة الشركة في وضع الموبايل */
+@media (max-width: 992px) {
+    #company-philosophy {
+        /* تقليل البادينغ العلوي في الموبايل ليصبح أقل ازدحاماً */
+        padding-top: 50px !important; 
+    }
 }
 
