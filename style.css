@@ -237,24 +237,56 @@ html[dir="rtl"] .logo a {
     /* محاذاة النص لليمين */
 }
 
-/* محاذاة أزرار الـ Hero لليمين */
-.rtl .hero-content div {
+/* محاذاة أزرار الـ Hero لليمين/اليسار */
+.hero-content div {
     display: flex;
+    gap: 20px; /* إضافة مسافة بين الأزرار */
+}
+
+/* في وضع RTL، ندفع الأزرار لليمين (محاذاة لليمين) */
+.rtl .hero-content div {
     justify-content: flex-end;
-    /* هذا يدفع الأزرار لليمين */
 }
 
-/* لإصلاح تداخل الأزرار في RTL */
-.rtl .hero-content a.consultation-btn:nth-child(1) {
-    margin-right: 0 !important;
-    margin-left: 20px !important;
+/* في وضع LTR (الافتراضي)، ندفع الأزرار لليسار (محاذاة لليسار) */
+.hero-section:not(.rtl) .hero-content div {
+    justify-content: flex-start;
 }
 
-.rtl .hero-content a.consultation-btn:nth-child(2) {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
+/* إلغاء الـ margin-left و margin-right الزائد الذي كان يسبب مشاكل التداخل */
+.rtl .hero-content a.consultation-btn {
+    margin: 0 !important;
+}
+/* Fixed Contact Buttons */
+.fixed-contact-buttons {
+    position: fixed;
+    bottom: 30px;
+    /* التبديل بين اليسار واليمين حسب RTL/LTR */
+    right: 30px; /* وضع الأزرار على اليمين في RTL */
+    left: auto;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
+/* إعادة ضبط موقع الأزرار في LTR */
+html:not([dir="rtl"]) .fixed-contact-buttons {
+    left: 30px;
+    right: auto;
+}
+
+/* ... (تنسيقات floating-btn و whatsapp-btn و phone-btn) ... */
+
+/* NEW: Language Toggle Button Styling */
+.lang-toggle-btn {
+    background-color: var(--heading-color); /* استخدام اللون الذهبي */
+    color: var(--bg-dark); /* نص/أيقونة باللون الداكن */
+}
+
+.lang-toggle-btn:hover {
+    background-color: #A0782C; /* لون ذهبي أغمق عند التمرير */
+}
 /* --- MOBILE RESPONSIVE (الشغل كله هنا) --- */
 @media (max-width: 992px) {
     .hero-content {
@@ -661,6 +693,8 @@ footer a:hover {
 }
 
 @media (max-width: 576px) {
+   
+    
     .hero-content {
         text-align: center !important;
         /* هذا هو الإصلاح: جعله كتلة يمكن توسيطها */
@@ -1201,10 +1235,15 @@ footer a:hover {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    /* التعديل: زيادة العرض الكلي للمجموعة وتوسيطها */
+    max-width: 1100px; /* لتقترب من عرض الـ container */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .certificate-images img {
-    max-width: 150px;
+     width: 30%; /* 30% width for each image * 3 = 90%, leaving 10% for gaps */
+    max-width: 350px; /* زيادة الحد الأقصى للعرض لكل صورة */
     height: auto;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -1212,7 +1251,7 @@ footer a:hover {
 
 /* 2. Equipment Section */
 .equipment-content {
-    background-color: var(--nav-bg);
+     background-color: var(--nav-bg);
     padding: 50px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -1437,7 +1476,7 @@ footer a:hover {
     align-items: center;
     /* RTL: ترتيب الأيقونة والنص */
     flex-direction: row-reverse;
-    justify-content: flex-start;
+    justify-content: flex-end;
     /* المحاذاة لليمين */
 }
 
@@ -1468,6 +1507,7 @@ footer a:hover {
 
 /* --- MOBILE RESPONSIVE FIXES --- */
 @media (max-width: 992px) {
+    
     .service-card {
         text-align: center;
     }
@@ -1541,6 +1581,17 @@ footer a:hover {
         float: none;
         display: block;
         margin: 20px auto 0 auto;
+    }
+     .certificate-images {
+        max-width: 100%;
+        gap: 0;
+        flex-direction: column; /* تكديس الصور عمودياً */
+        align-items: center; /* توسيط الصور المكدسة */
+    }
+    .certificate-images img {
+        width: 90%; /* عرض 90% من الحاوية الأصلية */
+        max-width: none;
+        margin-bottom: 20px; /* إضافة مسافة بين الصور المكدسة */
     }
 }
 
@@ -1684,3 +1735,40 @@ footer a:hover {
     /* لجعل علامات القائمة تظهر داخل حدود النص */
     padding-right: 0;
 }
+
+/* Styling for 2x2 Clients Grid (As per User Request) */
+.clients-logo-grid-custom {
+    display: grid;
+    /* الافتراضي للديسكتوب: عرض أربعة شعارات في صف واحد (1fr 1fr 1fr 1fr) */
+    /* لكن لضمان 2x2 كما في الصورة المرفقة حتى في الديسكتوب: */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px; /* تباعد بين الصور */
+    margin-top: 50px;
+    max-width: 800px; /* تحديد أقصى عرض للحاوية لتوسيطها */
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center; /* توسيط الشعارات داخل خلايا Grid */
+    align-items: center;
+    padding: 0 20px; /* لإضافة مسافة داخلية قليلاً */
+}
+
+.clients-logo-grid-custom img {
+    /* **إزالة تأثيرات الأبيض والأسود والأوباسيتي** */
+    filter: none !important;
+    opacity: 1 !important;
+    /* **تكبير حجم الشعارات وجعلها تأخذ مساحة** */
+    width: 100%; /* العرض الكامل لخلية الشبكة */
+    max-width: 250px; /* تحديد حجم أقصى لمنع التمدد المفرط */
+    height: auto;
+    /* إضافة بعض التظليل لتبدو كبطاقات منفصلة (اختياري) */
+    /* padding: 20px;
+    background-color: var(--text-light); 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease; */
+}
+
+.clients-logo-grid-custom img:hover {
+    transform: scale(1.05);
+}
+

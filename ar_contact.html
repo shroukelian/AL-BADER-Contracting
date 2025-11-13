@@ -1,72 +1,63 @@
 <!DOCTYPE html>
-<!-- **تم تغيير الاتجاه إلى RTL واللغة إلى AR** -->
-<html lang="ar" dir="rtl" class="rtl">
+<html lang="ar" dir="rtl" class="rtl"> <!-- 1. تغيير اللغة والاتجاه إلى RTL -->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اتصل بنا | البدر الدولية للمقاولات</title>
+    <title>اتصل بنا | البدر الدولية للمقاولات</title> <!-- 2. تعريب العنوان -->
     <meta name="description"
-        content="تواصل مع خبراء البدر لطلب استشارة مجانية أو استفسارات المشاريع في الرياض، المملكة العربية السعودية.">
+        content="تواصل مع خبراء البدر للحصول على استشارة مجانية أو استفسارات المشاريع في الرياض، المملكة العربية السعودية."> <!-- 2. تعريب الوصف -->
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Contact Page Specific Styles (مُعدّل لـ RTL) */
+        /* Contact Page Specific Styles - تعديلات محاذاة RTL */
         .contact-grid-layout {
             display: grid;
-            /* **تعديل: Info على اليمين (1fr) والنموذج على اليسار (1.5fr) لـ RTL** */
+            /* عكس ترتيب الأعمدة لـ RTL: النموذج على اليمين (1.5fr)، المعلومات على اليسار (1fr) */
             grid-template-columns: 1.5fr 1fr;
             gap: 60px;
             margin-top: 50px;
             align-items: center;
         }
+        /* ... (تنسيقات CSS الأخرى داخل <style> يمكن الاحتفاظ بها كما هي
+             إذا كانت التنسيقات العامة في style.css تدعم RTL بشكل جيد) ... */
 
         .contact-info-section {
             padding: 30px 0;
-            text-align: right;
-            /* RTL Default */
+            text-align: right; /* RTL Default */
         }
-
-        /* هذا التوسيط هو للعناوين في قسم المعلومات */
-        .contact-info-section h2,
-        .contact-info-section h3 {
-            text-align: right;
-        }
-
         .contact-info-section h2 {
             color: var(--primary-color);
             margin-bottom: 20px;
+            text-align: right;
         }
 
         .contact-info-section h3 {
             color: var(--accent-color);
             margin-top: 30px;
+            text-align: right;
         }
 
         .contact-info-section p {
-            display: flex;
-            /* لترتيب الأيقونات والنصوص */
+            display: flex; /* لترتيب الأيقونات والنصوص */
             align-items: center;
+            /* عكس ترتيب الأيقونة والنص لـ RTL */
+            flex-direction: row-reverse;
+            justify-content: flex-end; /* محاذاة اليمين */
             gap: 10px;
             margin-bottom: 15px;
-            /* **لضمان المحاذاة لليمين** */
-            justify-content: flex-end;
-        }
-
-        .contact-info-section p:not(.contact-address) i {
-            /* الأيقونة تظهر أولاً في RTL، لذا لا حاجة لـ margin-right */
-            margin-right: 0;
-            margin-left: 10px;
-            /* مسافة بين الأيقونة والنص */
         }
 
         .contact-info-section i {
             color: var(--accent-color);
             font-size: 1.1em;
+            /* الأيقونة قبل النص في RTL */
+            margin-left: 10px; 
+            margin-right: 0;
         }
 
-        /* النموذج الآن على اليسار في RTL */
+
         .contact-form-container {
             background-color: var(--nav-bg);
             padding: 40px;
@@ -82,8 +73,7 @@
             color: var(--accent-color);
             font-weight: 600;
             font-size: 1.1em;
-            text-align: right;
-            /* RTL */
+            text-align: right; /* RTL */
         }
 
         .contact-form-container input[type="text"],
@@ -96,8 +86,8 @@
             border: 1px solid var(--heading-color);
             background-color: var(--bg-dark);
             color: var(--text-light);
-            /* **لضمان أن النص يبدأ من اليمين لـ RTL** */
-            text-align: right;
+            /* لضمان أن النص يبدأ من اليمين لـ RTL */
+            text-align: right; 
         }
 
         .contact-form-container textarea {
@@ -106,7 +96,7 @@
         }
 
         .btn-send {
-            background: linear-gradient(135deg, #7A5AF8, #5AF8A6);
+            background: linear-gradient(135deg, #FF6666, #4DCC4D); /* تغيير الألوان للتماشي مع الثيم */
             border: none;
             color: white;
             padding: 12px 30px;
@@ -114,62 +104,30 @@
             margin-top: 20px;
             font-weight: 700;
             cursor: pointer;
-            float: right;
-            /* **تعديل: زر الإرسال على اليمين لـ RTL** */
+            float: right; /* **تعديل: زر الإرسال على اليمين لـ RTL** */
             transition: opacity 0.3s;
         }
-
-        .btn-send:hover {
-            opacity: 0.9;
-        }
-
-        /* --- Google Map Section Styling --- */
-        .map-section {
-            padding: 30px 0;
-        }
-
-        .map-embed-container iframe {
-            display: block;
-            width: 100%;
-            height: 450px;
-            border: 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-        }
-
+        
         /* Mobile Adjustments */
         @media (max-width: 768px) {
             .contact-grid-layout {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-
-            .contact-info-section,
-            .contact-form-container {
+            .contact-info-section {
                 text-align: center;
             }
-
             .contact-info-section p {
-                justify-content: center;
-                /* توسيط معلومات الاتصال في الموبايل */
+                /* إرجاع الأيقونة والنص إلى محاذاة اليمين في الموبايل */
+                flex-direction: row-reverse; 
+                justify-content: center; 
             }
-
-            .contact-form-container input,
-            .contact-form-container textarea {
-                text-align: right;
-                /* التأكيد في الموبايل */
-            }
-
             .btn-send {
                 /* توسيط زر الإرسال في الموبايل */
-                float: none;
+                float: none; 
                 display: block;
                 width: 100%;
                 text-align: center;
-            }
-
-            .map-embed-container iframe {
-                height: 300px;
             }
         }
     </style>
@@ -179,16 +137,19 @@
     <header>
         <div class="container header-container">
             <!-- Header Content -->
-            <!-- **تم حذف اسم الشركة** -->
-            <div class="logo header-logo"> <a href="ar_home.html"> <img src="images/logo-removebg-preview (3).png"
-                        alt="شعار البدر الدولية للمقاولات" style="height: 40px; width: auto;"> <span>البدر الدولية
-                        للمقاولات</span> </a> </div>
+            <div class="logo header-logo">
+                <a href="index.html"> <!-- تغيير الرابط إلى العربية -->
+                    <img src="images/logo-removebg-preview (3).png" alt="شعار البدر الدولية للمقاولات"
+                       > 
+                    <span>البدر الدولية للمقاولات</span> <!-- تعريب الشعار -->
+                </a> 
+            </div>
             <button class="hamburger-menu" aria-label="Toggle Navigation"><span class="bar"></span><span
                     class="bar"></span><span class="bar"></span></button>
             <div class="main-nav-wrapper">
                 <nav class="header-nav">
                     <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="index.html">الرئيسية</a></li> <!-- تعريب الروابط -->
                         <li><a href="ar_projects.html">مشاريعنا</a></li>
                         <li><a href="ar_blog.html">مقالاتنا</a></li>
                         <li><a href="ar_services.html">خدماتنا</a></li>
@@ -197,8 +158,8 @@
                     </ul>
                 </nav>
                 <div class="header-actions-group">
-                    <a href="en_contact.html" class="lang-btn">English</a>
-                    <a href="ar_contact.html" class="consultation-btn">طلب استشارة </a>
+                    <a href="en_contact.html" id="lang-toggle-header" class="lang-btn">English</a> <!-- زر تبديل اللغة -->
+                    <a href="ar_contact.html" class="consultation-btn">طلب استشارة </a> <!-- تعريب الزر -->
                 </div>
             </div>
         </div>
@@ -207,28 +168,16 @@
         <div id="particles-js"></div>
         <section class="page-section content-above-animation" style="padding-top: 120px;">
             <div class="container">
-                <h1 style="text-align: center;">تواصل مع فريق الخبراء لدينا</h1>
-                <p style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">نحن في انتظار مشروعك القادم.
-                    ابدأ رحلة التميز الآن.</p>
+                <h1 style="text-align: center;">تواصل مع فريق الخبراء لدينا</h1> <!-- تعريب العنوان -->
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">نحن جاهزون لمشروعك القادم. ابدأ رحلتك نحو التميز الآن.</p> <!-- تعريب الوصف -->
 
-                <!-- Grid Layout: Info on Right, Form on Left for RTL -->
+                <!-- Grid Layout: Form on Right, Info on Left in RTL -->
                 <div class="contact-grid-layout">
-                    <!-- العمود الأيسر (المعلومات) - 1fr -->
-                    <div class="contact-info-section">
-                        <h2 style="color: var(--primary-color);text-align: center;">معلومات الاتصال</h2>
-                        <!-- **البيانات الجديدة** -->
-                        <p class="contact-address"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية
-                            السعودية، الملز، شارع ابن زيدون</p>
-                        <p class="contact-detail"><i class="fas fa-phone-alt"></i> 0548442666</p>
-                        <p class="contact-detail"><i class="fas fa-envelope"></i> albader.aldawlih@outlook.com</p>
-                    </div>
-
-                    <!-- العمود الأيمن (النموذج) - 1.5fr -->
+                    <!-- Right Column (Form) -->
                     <div class="contact-form-container">
-                        <h2 style="color: var(--heading-color); text-align: center; margin-bottom: 40px;">أرسل استفسارك
-                            إلينا</h2>
+                        <h2 style="color: var(--heading-color); text-align: center; margin-bottom: 40px;">أرسل استفسارك إلينا</h2> <!-- تعريب العنوان -->
                         <form>
-                            <label for="full-name">الاسم الكامل</label>
+                            <label for="full-name">الاسم الكامل</label> <!-- تعريب الحقول -->
                             <input type="text" id="full-name" name="full-name" required>
 
                             <label for="email">البريد الإلكتروني</label>
@@ -240,36 +189,48 @@
                             <label for="message-content">محتوى الرسالة</label>
                             <textarea id="message-content" name="message-content" required></textarea>
 
-                            <button type="submit" class="btn-send">إرسال الطلب</button>
+                            <button type="submit" class="btn-send">إرسال الاستفسار</button> <!-- تعريب الزر -->
                         </form>
                     </div>
 
-
+                    <!-- Left Column (Info) -->
+                    <div class="contact-info-section">
+                        <h2 style="color: var(--primary-color);text-align: center;">بيانات التواصل</h2> <!-- تعريب العنوان -->
+                        <!-- البيانات الجديدة -->
+                        <p class="contact-address"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية، الملز، شارع ابن زيدون</p> <!-- تعريب البيانات -->
+                        <p class="contact-detail"><i class="fas fa-phone-alt"></i> 0548442666</p>
+                        <p class="contact-detail"><i class="fas fa-envelope"></i> albader.aldawlih@outlook.com</p>
+                    </div>
                 </div>
-
-                <!-- **قسم الخريطة (بعرض كامل)** -->
+                
+                <!-- **Map Section (Outside the Grid)** -->
                 <div class="map-section">
-                    <h2 style="text-align: center; color: var(--heading-color); margin-top: 60px; margin-bottom: 30px;">
-                        موقعنا على الخريطة</h2>
+                    <h2 style="text-align: center; color: var(--heading-color); margin-top: 60px; margin-bottom: 30px;">موقعنا على الخريطة</h2> <!-- تعريب العنوان -->
                     <div class="map-embed-container">
                         <iframe
-                            src="https://maps.google.com/maps?q=24.667098999023438,46.73134994506836&z=17&hl=ar&output=embed"
-                            width="100%" height="450" style="border:0; border-radius: 10px;" allowfullscreen=""
+                            src="https://maps.google.com/maps?q=24.667098999023438,46.73134994506836&z=17&hl=ar&output=embed" <!-- تغيير لغة الخريطة إلى العربية -->
+                            width="100%" height="450" style="border:0;" allowfullscreen=""
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                 </div>
-                <!-- **نهاية قسم الخريطة** -->
+                <!-- **End of Map Section** -->
 
             </div>
         </section>
     </main>
-    <!-- Floating Contact Buttons -->
+    <!-- Floating Contact Buttons - تم تعديلها لتستخدم JS -->
     <div class="fixed-contact-buttons">
-        <a href="https://wa.me/966548442666" target="_blank" class="floating-btn whatsapp-btn" aria-label="واتساب">
+        <!-- WhatsApp Button: الرقم الصحيح للواتساب -->
+        <a href="https://wa.me/966500406056" target="_blank" class="floating-btn whatsapp-btn" aria-label="WhatsApp Us">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:0548442666" class="floating-btn phone-btn" aria-label="اتصل بنا">
+        <!-- Dynamic Language Toggle Button (Uses JS) -->
+        <a href="#" class="floating-btn lang-toggle-btn" id="lang-toggle-float" aria-label="Change Language">
+            <i class="fas fa-globe"></i>
+        </a>
+        <!-- Phone Button: الرقم الصحيح للاتصال -->
+        <a href="tel:0500406056" class="floating-btn phone-btn" aria-label="Call Us">
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
@@ -277,9 +238,9 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>البدر الدولية للمقاولات</h3>
-                    <p>نحن نحول الأفكار الإنشائية الطموحة إلى حقيقة. تميز في الهندسة والثقة في التنفيذ.</p>
-                    <div class="footer-social-links">
+                    <h3>البدر الدولية للمقاولات</h3> <!-- تعريب العنوان -->
+                    <p>نقوم بتطبيق جميع أنواع الدهانات على الحديد، والدهانات المقاومة للحريق، وجميع أنواع الدهانات الإيبوكسية للأرضيات.</p> <!-- تعريب النص -->
+                    <div class="footer-social-links" style="direction: rtl;"> <!-- إضافة اتجاه RTL للروابط الاجتماعية -->
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -287,8 +248,8 @@
                 </div>
 
                 <div class="footer-col">
-                    <h3>روابط سريعة</h3>
-                    <ul>
+                    <h3>روابط سريعة</h3> <!-- تعريب العنوان -->
+                    <ul style="padding-right: 0;">
                         <li><a href="ar_projects.html">مشاريعنا</a></li>
                         <li><a href="ar_blog.html">مقالاتنا</a></li>
                         <li><a href="ar_services.html">خدماتنا</a></li>
@@ -297,22 +258,20 @@
                     </ul>
                 </div>
 
-                <div class="footer-col footer-contact-info" style="text-align: right;">
-                    <h3>معلومات الاتصال</h3>
-                    <!-- التعديل هنا: الأيقونة قبل النص -->
-                    <p style="justify-content: flex-end;"><span style="margin-left: 10px;">الرياض، المملكة العربية
-                            السعودية</span> <i class="fas fa-map-marker-alt"></i></p>
-                    <p style="justify-content: flex-end;"><span style="margin-left: 10px;">056 406 500 966+</span> <i
-                            class="fas fa-phone-alt"></i></p>
-                    <p style="justify-content: flex-end;"><span
-                            style="margin-left: 10px;">info@albadercontracting.com</span> <i
-                            class="fas fa-envelope"></i></p>
-                </div>
+                <!-- Left Column (Info) -->
+                    <div class="contact-info-section">
+                        <h2 style="color: var(--primary-color);text-align: center;">بيانات التواصل</h2> <!-- تعريب العنوان -->
+                        <!-- البيانات الجديدة -->
+                        <!-- يتم التحكم بترتيب الأيقونة (الأولى في الكود) والنص بواسطة CSS: flex-direction: row-reverse -->
+                        <p class="contact-address"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية، الملز، شارع ابن زيدون</p> <!-- تعريب البيانات -->
+                        <p class="contact-detail"><i class="fas fa-phone-alt"></i> 0548442666</p>
+                        <p class="contact-detail"><i class="fas fa-envelope"></i> albader.aldawlih@outlook.com</p>
+                    </div>
             </div>
 
             <div class="copyright">
-                &copy; <span id="current-year">2024</span> البدر الدولية للمقاولات. جميع الحقوق محفوظة.
-                <p class="designer-note">تصميم وتطوير بواسطة [اسمك/شركتك]</p>
+                &copy; <span id="current-year">2024</span> البدر الدولية للمقاولات. جميع الحقوق محفوظة. <!-- تعريب النص -->
+                <p class="designer-note">تصميم وتطوير بواسطة [اسمك/شركتك]</p> <!-- تعريب النص -->
             </div>
         </div>
     </footer>
