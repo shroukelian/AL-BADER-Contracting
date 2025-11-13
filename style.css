@@ -1793,8 +1793,15 @@ footer a:hover {
 /* معالجة البادينغ العلوي لقسم فلسفة الشركة في وضع الموبايل */
 @media (max-width: 992px) {
     #company-philosophy {
-        /* تقليل البادينغ العلوي في الموبايل ليصبح أقل ازدحاماً */
-        padding-top: 50px !important; 
+        margin-top: 30px !important; /* مسافة خارجية تفصله عن القسم اللي فوقه */
+        padding-top: 40px !important; /* مسافة داخلية عشان النص ميلزقش في سقف المربع */
+        position: relative;
+        z-index: 5; /* لضمان ظهوره فوق أي خلفية */
+    }
+    
+    /* 3. التأكد من أن محتوى المربع نفسه له مسافة داخلية كافية */
+    #company-philosophy .equipment-content {
+        padding: 30px 20px !important;
     }
 }
 
