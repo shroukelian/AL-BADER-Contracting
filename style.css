@@ -113,7 +113,7 @@ header .container {
 .main-nav-wrapper {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     /* مسافة بين الروابط والأزرار */
     
 }
@@ -124,7 +124,7 @@ header .container {
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 5px;
+    gap: 10px;
 }
 
 .header-nav ul li a {
@@ -134,6 +134,10 @@ header .container {
     font-weight: 600;
     border-radius: 6px;
     transition: 0.3s;
+    white-space: nowrap; 
+    /* **الإضافة الجديدة 2: زيادة مساحة العرض (البادينغ الأفقي)** */
+    padding-left: 15px; /* زيادة البادينغ الأفقي */
+    padding-right: 15px; /* زيادة البادينغ الأفقي */
 }
 
 .header-nav ul li a:hover,
