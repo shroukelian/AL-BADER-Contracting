@@ -1,49 +1,39 @@
-// Function to dynamically switch between Arabic and English pages (Final Version for Git Pages)
+// Function to dynamically switch between Arabic and English pages (Simplified for Root Domain)
 function switchLanguage() {
-    const currentURL = window.location.href;
     const currentPath = window.location.pathname;
-    
     let newPath = '';
     
-    // 1. تحديد ما إذا كنا في الصفحة الرئيسية (Root) - المسار هو "/" فقط
-    if (currentPath === '/') {
-        // من الجذر (العربية) إلى الإنجليزية
-        newPath = currentPath + 'en_index.html';
-    } 
+    // الحصول على المسار الحالي بدون الشرطة المائلة (/) في البداية
+    const pathWithoutSlash = currentPath.substring(1); 
     
-    // 2. التحويل من EN_INDEX (en_index.html) إلى AR_INDEX (index.html)
-    else if (currentPath.endsWith('/en_index.html')) {
+    // 1. حالة التحويل من الإنجليزية إلى العربية
+    if (pathWithoutSlash === 'en_index.html') {
         // التحويل من en_index.html إلى index.html
-        newPath = currentPath.replace('en_index.html', 'index.html');
+        newPath = '/index.html'; 
+    }
+    else if (pathWithoutSlash.startsWith('en_')) {
+        // التحويل من en_page.html إلى ar_page.html
+        newPath = '/' + pathWithoutSlash.replace('en_', 'ar_');
     }
     
-    // 3. التحويل من AR_INDEX (index.html) إلى EN_INDEX (en_index.html) - لو كان المسار هو /index.html
-    else if (currentPath.endsWith('/index.html')) {
-        // التحويل من index.html إلى en_index.html
-        newPath = currentPath.replace('index.html', 'en_index.html');
-    }
-    
-    // 4. التحويل من AR_PAGE إلى EN_PAGE (ar_about.html -> en_about.html)
-    else if (currentPath.startsWith('/ar_')) {
-        // استبدال /ar_ بـ /en_
-        newPath = currentPath.replace('/ar_', '/en_');
-    }
-    
-    // 5. التحويل من EN_PAGE إلى AR_PAGE (en_about.html -> ar_about.html)
-    else if (currentPath.startsWith('/en_')) {
-        // استبدال /en_ بـ /ar_
-        newPath = currentPath.replace('/en_', '/ar_');
+    // 2. حالة التحويل من العربية إلى الإنجليزية (يشمل المسار الجذر)
+    else if (pathWithoutSlash === '' || pathWithoutSlash === 'index.html') {
+        // التحويل من الجذر (/) أو index.html إلى en_index.html
+        newPath = '/en_index.html';
     } 
+    else if (pathWithoutSlash.startsWith('ar_')) {
+        // التحويل من ar_page.html إلى en_page.html
+        newPath = '/' + pathWithoutSlash.replace('ar_', 'en_');
+    }
     
     else {
-        // Fallback: لا يمكن التعرف على النمط، نرسله إلى الإنجليزية
-        console.error("Language switch failed: Unknown path pattern, defaulting to English home.");
+        // Fallback: Default to English Home
         newPath = '/en_index.html';
     }
     
-    // إعادة التوجيه
-    // نستخدم replace() على الرابط الكامل لضمان التعامل مع http:// و https:// بشكل صحيح
-    window.location.href = currentURL.replace(currentPath, newPath);
+    // 3. إعادة التوجيه
+    // استخدام window.location.pathname للتوجيه لضمان أن المسار صحيح على GitHub Pages
+    window.location.pathname = newPath;
 }
 
 
