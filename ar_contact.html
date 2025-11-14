@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>اتصل بنا | البدر الدولية للمقاولات</title> <!-- 2. تعريب العنوان -->
     <meta name="description"
-        content="تواصل مع خبراء البدر للحصول على استشارة مجانية أو استفسارات المشاريع في الرياض، المملكة العربية السعودية."> <!-- 2. تعريب الوصف -->
+        content="تواصل مع خبراء البدر للحصول على استشارة مجانية أو استفسارات المشاريع في الرياض، المملكة العربية السعودية.">
+    <!-- 2. تعريب الوصف -->
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -22,8 +23,10 @@
 
         .contact-info-section {
             padding: 30px 0;
-            text-align: right; /* RTL Default */
+            text-align: right;
+            /* RTL Default */
         }
+
         .contact-info-section h2 {
             color: var(--primary-color);
             margin-bottom: 20px;
@@ -37,10 +40,10 @@
         }
 
         .contact-info-section p {
-            display: flex; 
+            display: flex;
             align-items: center;
             flex-direction: row-reverse;
-            justify-content: flex-end; 
+            justify-content: flex-end;
             gap: 10px;
             margin-bottom: 15px;
         }
@@ -48,7 +51,7 @@
         .contact-info-section i {
             color: var(--accent-color);
             font-size: 1.1em;
-            margin-left: 10px; 
+            margin-left: 10px;
             margin-right: 0;
         }
 
@@ -68,7 +71,8 @@
             color: var(--accent-color);
             font-weight: 600;
             font-size: 1.1em;
-            text-align: right; /* RTL */
+            text-align: right;
+            /* RTL */
         }
 
         .contact-form-container input[type="text"],
@@ -81,7 +85,7 @@
             border: 1px solid var(--heading-color);
             background-color: var(--bg-dark);
             color: var(--text-light);
-            text-align: right; 
+            text-align: right;
         }
 
         .contact-form-container textarea {
@@ -90,7 +94,8 @@
         }
 
         .btn-send {
-            background: linear-gradient(135deg, #FF6666, #4DCC4D); /* تغيير الألوان للتماشي مع الثيم */
+            background: linear-gradient(135deg, #FF6666, #4DCC4D);
+            /* تغيير الألوان للتماشي مع الثيم */
             border: none;
             color: white;
             padding: 12px 30px;
@@ -98,25 +103,28 @@
             margin-top: 20px;
             font-weight: 700;
             cursor: pointer;
-            float: right; 
+            float: right;
             transition: opacity 0.3s;
         }
-        
+
         /* Mobile Adjustments */
         @media (max-width: 768px) {
             .contact-grid-layout {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+
             .contact-info-section {
                 text-align: center;
             }
+
             .contact-info-section p {
-                flex-direction: row-reverse; 
-                justify-content: center; 
+                flex-direction: row-reverse;
+                justify-content: center;
             }
+
             .btn-send {
-                float: none; 
+                float: none;
                 display: block;
                 width: 100%;
                 text-align: center;
@@ -130,27 +138,26 @@
         <div class="container header-container">
             <!-- Header Content -->
             <div class="logo header-logo">
-                <a href="index.html"> 
-                    <img src="images/logo-removebg-preview (3).png" alt="شعار البدر الدولية للمقاولات"
-                       > 
-                    <span>البدر الدولية للمقاولات</span> 
-                </a> 
+                <a href="index.html">
+                    <img src="images/logo-removebg-preview (3).png" alt="شعار البدر الدولية للمقاولات">
+                    <span>البدر الدولية للمقاولات</span>
+                </a>
             </div>
             <button class="hamburger-menu" aria-label="Toggle Navigation"><span class="bar"></span><span
                     class="bar"></span><span class="bar"></span></button>
             <div class="main-nav-wrapper">
                 <nav class="header-nav">
                     <ul>
-                        <li ><a href="index.html">الرئيسية</a></li>
-                        <li ><a href="ar_about.html">من نحن</a></li>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="ar_about.html">من نحن</a></li>
                         <li><a href="ar_services.html">خدماتنا</a></li>
                         <li><a href="ar_projects.html">مشاريعنا</a></li>
-                        <li ><a href="ar_blog.html">مقالاتنا</a></li>
+                        <li><a href="ar_blog.html">مقالاتنا</a></li>
                         <li class="active"><a href="ar_contact.html">اتصل بنا</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions-group">
-                    <a href="en_contact.html" id="lang-toggle-header" class="lang-btn">English</a> 
+                    <a href="en_contact.html" id="lang-toggle-header" class="lang-btn">English</a>
                     <a href="ar_contact.html" class="consultation-btn">طلب استشارة </a>
                 </div>
             </div>
@@ -160,16 +167,18 @@
         <div id="particles-js"></div>
         <section class="page-section content-above-animation" style="padding-top: 120px;">
             <div class="container">
-                <h1 style="text-align: center;">تواصل مع فريق الخبراء لدينا</h1> 
-                <p style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">نحن جاهزون لمشروعك القادم. ابدأ رحلتك نحو التميز الآن.</p> <!-- تعريب الوصف -->
+                <h1 style="text-align: center;">تواصل مع فريق الخبراء لدينا</h1>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">نحن جاهزون لمشروعك القادم.
+                    ابدأ رحلتك نحو التميز الآن.</p> <!-- تعريب الوصف -->
 
                 <!-- Grid Layout: Form on Right, Info on Left in RTL -->
                 <div class="contact-grid-layout">
                     <!-- Right Column (Form) -->
                     <div class="contact-form-container">
-                        <h2 style="color: var(--heading-color); text-align: center; margin-bottom: 40px;">أرسل استفسارك إلينا</h2> 
-                        <form>
-                            <label for="full-name">الاسم الكامل</label> <!-- تعريب الحقول -->
+                        <h2 style="color: var(--heading-color); text-align: center; margin-bottom: 40px;">أرسل استفسارك
+                            إلينا</h2>
+                        <form action="mailto:info@albader-contracting.com" method="post" enctype="text/plain"> <label
+                                for="full-name">الاسم الكامل</label> <!-- تعريب الحقول -->
                             <input type="text" id="full-name" name="full-name" required>
 
                             <label for="email">البريد الإلكتروني</label>
@@ -187,20 +196,23 @@
 
                     <!-- Left Column (Info) -->
                     <div class="contact-info-section">
-                        <h2 style="color: var(--primary-color);text-align: center;">بيانات التواصل</h2> 
+                        <h2 style="color: var(--primary-color);text-align: center;">بيانات التواصل</h2>
                         <!-- البيانات الجديدة -->
-                        <p class="contact-address"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية، الملز، شارع ابن زيدون</p> <!-- تعريب البيانات -->
+                        <p class="contact-address"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية
+                            السعودية، الملز، شارع ابن زيدون</p> <!-- تعريب البيانات -->
                         <p class="contact-detail"><i class="fas fa-phone-alt"></i> 0548442666</p>
-                        <p class="contact-detail"><i class="fas fa-envelope"></i> albader.aldawlih@outlook.com</p>
+                        <p class="contact-detail"><i class="fas fa-envelope"></i>info@albader-contracting.com</p>
                     </div>
                 </div>
-                
+
                 <!-- **Map Section (Outside the Grid)** -->
                 <div class="map-section">
-                    <h2 style="text-align: center; color: var(--heading-color); margin-top: 60px; margin-bottom: 30px;">موقعنا على الخريطة</h2> 
+                    <h2 style="text-align: center; color: var(--heading-color); margin-top: 60px; margin-bottom: 30px;">
+                        موقعنا على الخريطة</h2>
                     <div class="map-embed-container">
                         <iframe
-                            src="https://maps.google.com/maps?q=24.667098999023438,46.73134994506836&z=17&hl=ar&output=embed" <!-- تغيير لغة الخريطة إلى العربية -->
+                            src="https://maps.google.com/maps?q=24.667098999023438,46.73134994506836&z=17&hl=ar&output=embed"
+                            <!-- تغيير لغة الخريطة إلى العربية -->
                             width="100%" height="450" style="border:0;" allowfullscreen=""
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
@@ -223,7 +235,7 @@
         </a>
         <!-- NEW: Language Toggle Button -->
         <!-- بما أن الصفحة هي العربية (index.html)، الزر يحول إلى الإنجليزية (en_index.html) -->
-         <a href="#" class="floating-btn lang-toggle-btn" id="lang-toggle-float" aria-label="Change Language">
+        <a href="#" class="floating-btn lang-toggle-btn" id="lang-toggle-float" aria-label="Change Language">
             <i class="fas fa-globe"></i> <!-- تغيير الأيقونة إلى Globe لتبدو أفضل -->
         </a>
     </div>
@@ -231,9 +243,11 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>البدر الدولية للمقاولات</h3> 
-                    <p>شركه متخصصه في تنفيذ  جميع أنواع الدهانات على الحديد، والدهانات المقاومة للحريق، وجميع أنواع الدهانات الإيبوكسية للأرضيات.</p> <!-- تعريب النص -->
-                    <div class="footer-social-links" style="direction: rtl;"> <!-- إضافة اتجاه RTL للروابط الاجتماعية -->
+                    <h3>البدر الدولية للمقاولات</h3>
+                    <p>شركه متخصصه في تنفيذ جميع أنواع الدهانات على الحديد، والدهانات المقاومة للحريق، وجميع أنواع
+                        الدهانات الإيبوكسية للأرضيات.</p> <!-- تعريب النص -->
+                    <div class="footer-social-links" style="direction: rtl;">
+                        <!-- إضافة اتجاه RTL للروابط الاجتماعية -->
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -241,7 +255,7 @@
                 </div>
 
                 <div class="footer-col">
-                    <h3>روابط سريعة</h3> 
+                    <h3>روابط سريعة</h3>
                     <ul style="padding-right: 0;">
                         <li><a href="ar_projects.html">مشاريعنا</a></li>
                         <li><a href="ar_blog.html">مقالاتنا</a></li>
@@ -252,17 +266,20 @@
                 </div>
 
                 <!-- Left Column (Info) -->
-                    <div class="contact-info-section">
-                        <h2 style="color: var(--primary-color);text-align: center;">بيانات التواصل</h2> 
-                        <p class="contact-address"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية، الملز، شارع ابن زيدون</p> <!-- تعريب البيانات -->
-                        <p class="contact-detail"><i class="fas fa-phone-alt"></i> 0548442666</p>
-                        <p class="contact-detail"><i class="fas fa-envelope"></i> albader.aldawlih@outlook.com</p>
-                    </div>
+                <div class="contact-info-section">
+                    <h2 style="color: var(--primary-color);text-align: center;">بيانات التواصل</h2>
+                    <p class="contact-address"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية،
+                        الملز، شارع ابن زيدون</p> <!-- تعريب البيانات -->
+                    <p class="contact-detail"><i class="fas fa-phone-alt"></i> 0548442666</p>
+                    <p class="contact-detail"><i class="fas fa-envelope"></i>info@albader-contracting.com</p>
+                </div>
             </div>
 
             <div class="copyright">
-                &copy; <span id="current-year">2024</span> البدر الدولية للمقاولات. جميع الحقوق محفوظة. 
-                <p class="designer-note">Design and programming by<a href="https://www.facebook.com/profile.php?id=100090592885243&mibextid=ZbWKwL" target="_blank"><strong>GMTWEB</strong> </a> </p> <!-- تعريب النص -->
+                &copy; <span id="current-year">2024</span> البدر الدولية للمقاولات. جميع الحقوق محفوظة.
+                <p class="designer-note">Design and programming by<a
+                        href="https://www.facebook.com/profile.php?id=100090592885243&mibextid=ZbWKwL"
+                        target="_blank"><strong>GMTWEB</strong> </a> </p> <!-- تعريب النص -->
             </div>
         </div>
     </footer>
