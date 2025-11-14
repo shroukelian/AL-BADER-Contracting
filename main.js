@@ -1,43 +1,51 @@
-// Function to dynamically switch between Arabic and English pages (Simplified for Root Domain)
+// Function to dynamically switch between Arabic and English pages (Final Final Version)
 function switchLanguage() {
+    const currentURL = window.location.href;
     const currentPath = window.location.pathname;
-    let newPath = '';
     
-    // الحصول على المسار الحالي بدون الشرطة المائلة (/) في البداية
-    const pathWithoutSlash = currentPath.substring(1); 
+   
+    const baseDirMatch = currentPath.match(/\/([a-z0-9\-_]+)\//i);
+    const projectBase = baseDirMatch && baseDirMatch[0].length > 1 ? baseDirMatch[0] : '/'; 
+
+    let newFilename = '';
     
-    // 1. حالة التحويل من الإنجليزية إلى العربية
-    if (pathWithoutSlash === 'en_index.html') {
-        // التحويل من en_index.html إلى index.html
-        newPath = '/index.html'; 
-    }
-    else if (pathWithoutSlash.startsWith('en_')) {
-        // التحويل من en_page.html إلى ar_page.html
-        newPath = '/' + pathWithoutSlash.replace('en_', 'ar_');
-    }
+
+    const filenameMatch = currentPath.match(/([a-z0-9\-_]+\.html)$/i);
+    const currentFilename = filenameMatch ? filenameMatch[1] : 'index.html';
+
     
-    // 2. حالة التحويل من العربية إلى الإنجليزية (يشمل المسار الجذر)
-    else if (pathWithoutSlash === '' || pathWithoutSlash === 'index.html') {
-        // التحويل من الجذر (/) أو index.html إلى en_index.html
-        newPath = '/en_index.html';
+    if (currentFilename === 'index.html') {
+        newFilename = 'en_index.html';
     } 
-    else if (pathWithoutSlash.startsWith('ar_')) {
-        // التحويل من ar_page.html إلى en_page.html
-        newPath = '/' + pathWithoutSlash.replace('ar_', 'en_');
+    else if (currentFilename === 'en_index.html') {
+        newFilename = 'index.html';
     }
-    
+    else if (currentFilename.startsWith('ar_')) {
+        newFilename = currentFilename.replace('ar_', 'en_');
+    } 
+    else if (currentFilename.startsWith('en_')) {
+        newFilename = currentFilename.replace('en_', 'ar_');
+    } 
     else {
-        // Fallback: Default to English Home
-        newPath = '/en_index.html';
+        // Fallback
+        newFilename = 'en_' + currentFilename;
     }
     
-    // 3. إعادة التوجيه
-    // استخدام window.location.pathname للتوجيه لضمان أن المسار صحيح على GitHub Pages
-    window.location.pathname = newPath;
+    
+    let targetPath = '';
+    
+    if (newFilename === 'index.html') {
+        targetPath = projectBase + newFilename;
+    } else {
+    
+        targetPath = projectBase + newFilename;
+    }
+    
+  
+    window.location.href = window.location.origin + targetPath.replace('//', '/');
 }
 
 
-// ... (بقية كود main.js يبقى كما هو) ...
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -48,11 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (hamburger && navWrapper) {
         hamburger.addEventListener('click', function () {
-            // إضافة وإزالة الكلاس active للهامبرغر والقائمة
             this.classList.toggle('active');
             navWrapper.classList.toggle('active');
 
-            // إضافة/إزالة كلاس overflow على الجسم لمنع التمرير عندما تكون القائمة مفتوحة
             document.body.classList.toggle('menu-open');
         });
 
