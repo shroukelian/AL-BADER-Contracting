@@ -1,3 +1,40 @@
+// Function to dynamically switch between Arabic and English pages
+function switchLanguage() {
+    const currentPath = window.location.pathname;
+    // استخراج اسم الملف الحالي (مثل index.html أو ar_projects.html)
+    const filenameMatch = currentPath.match(/([a-z_]+\.html)$/i);
+    const currentFilename = filenameMatch ? filenameMatch[1] : 'index.html';
+
+    let newFilename = '';
+    
+    // 1. حالة التحويل من AR (index.html أو ar_*) إلى EN
+    if (currentFilename === 'index.html') {
+        // من index.html (العربية) إلى en_index.html (الإنجليزية)
+        newFilename = 'en_index.html';
+    } else if (currentFilename.startsWith('ar_')) {
+        // من ar_projects.html إلى en_projects.html
+        newFilename = currentFilename.replace('ar_', 'en_');
+    } 
+    
+    // 2. حالة التحويل من EN (en_index.html أو en_*) إلى AR
+    else if (currentFilename === 'en_index.html') {
+        // من en_index.html (الإنجليزية) إلى index.html (العربية)
+        newFilename = 'index.html';
+    } else if (currentFilename.startsWith('en_')) {
+        // من en_projects.html إلى ar_projects.html
+        newFilename = currentFilename.replace('en_', 'ar_');
+    } else {
+        // Fallback (في حالة اسم ملف غير متوقع - نحاول التحويل للرئيسية الإنجليزية)
+        newFilename = 'en_index.html';
+    }
+
+    // بناء المسار الجديد واستبدال اسم الملف
+    const newPath = currentPath.replace(currentFilename, newFilename);
+    
+    // إعادة التوجيه
+    window.location.href = newPath;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // 1. Hamburger Menu Toggle Logic
@@ -7,65 +44,53 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (hamburger && navWrapper) {
         hamburger.addEventListener('click', function() {
+            // إضافة وإزالة الكلاس active للهامبرغر والقائمة
             this.classList.toggle('active');
             navWrapper.classList.toggle('active');
+            
+            // إضافة/إزالة كلاس overflow على الجسم لمنع التمرير عندما تكون القائمة مفتوحة
+            document.body.classList.toggle('menu-open'); 
         });
 
         // Close menu when a link is clicked (for mobile)
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                // Check if the menu is active (mobile view)
                 if (window.innerWidth <= 992) {
                     hamburger.classList.remove('active');
                     navWrapper.classList.remove('active');
+                    document.body.classList.remove('menu-open');
                 }
             });
         });
     }
 
-    // 2. Placeholder for other interactive logic (e.g., FAQ Accordion)
+    // 2. Attach the dynamic language switch function to the buttons
+    const headerLangButton = document.getElementById('lang-toggle-header');
+    const floatLangButton = document.getElementById('lang-toggle-float');
+
+    // Attach to Header Button
+    if (headerLangButton) {
+        headerLangButton.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            switchLanguage();
+        });
+
+        // Update the header button text based on the current page
+        const isEnglishPage = window.location.pathname.startsWith('/en_');
+        headerLangButton.textContent = isEnglishPage ? 'العربية' : 'English';
+        headerLangButton.href = '#';
+    }
+
+    // Attach to Floating Button
+    if (floatLangButton) {
+        floatLangButton.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            switchLanguage();
+        });
+    }
+
+    // 3. Placeholder for other interactive logic (e.g., FAQ Accordion)
     // Add your FAQ Accordion code here if needed.
     
     // Note: Particles.js logic is now directly in the HTML file for simplicity.
 });
-
-
-
-// Function to dynamically switch between Arabic and English pages
-function switchLanguage() {
-    // Get the current URL pathname (e.g., /index.html, /ar_projects.html)
-    const currentPath = window.location.pathname;
-    
-    // Extract the filename (e.g., index.html, ar_projects.html)
-    const filenameMatch = currentPath.match(/([a-z_]+\.html)$/i);
-    const currentFilename = filenameMatch ? filenameMatch[1] : 'index.html'; // Default to index.html
-
-    let newFilename = '';
-    
-    // Logic to determine the new filename based on the current one
-    if (currentFilename.startsWith('ar_')) {
-        // If it starts with 'ar_', switch to 'en_' (e.g., ar_projects.html -> en_projects.html)
-        newFilename = currentFilename.replace('ar_', 'en_');
-    } else if (currentFilename.startsWith('en_')) {
-        // If it starts with 'en_', switch to 'ar_' (e.g., en_projects.html -> ar_projects.html)
-        newFilename = currentFilename.replace('en_', 'ar_');
-    } else if (currentFilename === 'index.html' || currentFilename === 'ar_home.html') {
-        // Handle the main/home page (index.html or ar_home.html assumed to be Arabic)
-        newFilename = 'en_index.html';
-    } else if (currentFilename === 'en_index.html') {
-        // Handle the English main page
-        newFilename = 'index.html';
-    } else {
-        // If no prefix is found (e.g., a page named 'contact.html'), 
-        // a fallback mechanism is needed. For now, we'll try to default to the English version if ar_ is missing
-        newFilename = 'en_' + currentFilename;
-    }
-
-    // Replace the current filename with the new one in the URL
-    // This will work correctly if your folder structure is flat (all pages in the root)
-    const newPath = currentPath.replace(currentFilename, newFilename);
-    
-    // Redirect the user to the new page
-    window.location.href = newPath;
-}
-

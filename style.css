@@ -171,6 +171,8 @@ header .container {
     border-radius: 8px;
     text-decoration: none;
     font-weight: 700;
+        white-space: nowrap; 
+
 }
 
 /* --- Hero Section --- */
@@ -445,6 +447,9 @@ html:not([dir="rtl"]) .fixed-contact-buttons {
 
     .hero-content p {
         font-size: 1em;
+    }
+    .header-actions-group .lang-btn {
+        display: none;
     }
 
     .hero-content div {
