@@ -1,39 +1,57 @@
 // Function to dynamically switch between Arabic and English pages
+// Function to dynamically switch between Arabic and English pages
 function switchLanguage() {
+    // 1. استخراج المسار الكامل (بدون الدومين)
     const currentPath = window.location.pathname;
-    // استخراج اسم الملف الحالي (مثل index.html أو ar_projects.html)
-    const filenameMatch = currentPath.match(/([a-z0-9\-_]+\.html)$/i);
-    const currentFilename = filenameMatch ? filenameMatch[1] : 'index.html';
-
+    
+    // 2. تحديد اسم الملف الحالي بشكل أدق (أو إرجاع مسار الجذر إذا كان index.html)
+    // التعبير العادي هنا يستخرج أي اسم ملف ينتهي بـ .html 
+    // أو لا يستخرج شيئاً إذا كان المسار هو '/' (الصفحة الرئيسية)
+    const filenameMatch = currentPath.match(/([a-z0-9\-_]+\.html)$/i); 
+    
+    // الحصول على اسم الملف أو مسار الجذر (/)
+    let currentFileOrRoot = filenameMatch ? filenameMatch[0] : '/'; 
     let newFilename = '';
 
-    // 1. حالة التحويل من AR (index.html أو ar_*) إلى EN
-    if (currentFilename === 'index.html') {
-        // من index.html (العربية) إلى en_index.html (الإنجليزية)
+    // 3. تحديد اسم الملف الجديد
+    
+    // حالة: الصفحة الرئيسية العربية (/) أو index.html
+    if (currentFileOrRoot === '/' || currentFileOrRoot === 'index.html') {
         newFilename = 'en_index.html';
-    } else if (currentFilename.startsWith('ar_')) {
-        // من ar_projects.html إلى en_projects.html
-        newFilename = currentFilename.replace('ar_', 'en_');
+    } 
+    // حالة: الصفحة الرئيسية الإنجليزية (en_index.html)
+    else if (currentFileOrRoot.endsWith('en_index.html')) {
+        // التحويل إلى الصفحة العربية الرئيسية، والتي هي '/' أو 'index.html'
+        newFilename = 'index.html'; 
     }
-
-    // 2. حالة التحويل من EN (en_index.html أو en_*) إلى AR
-    else if (currentFilename === 'en_index.html') {
-        // من en_index.html (الإنجليزية) إلى index.html (العربية)
-        newFilename = 'index.html';
-    } else if (currentFilename.startsWith('en_')) {
-        // من en_projects.html إلى ar_projects.html
-        newFilename = currentFilename.replace('en_', 'ar_');
+    // حالة: صفحة عربية أخرى (تبدأ بـ ar_)
+    else if (currentFileOrRoot.startsWith('/ar_') || currentFileOrRoot.startsWith('ar_')) {
+        newFilename = currentFileOrRoot.replace('ar_', 'en_');
+    } 
+    // حالة: صفحة إنجليزية أخرى (تبدأ بـ en_)
+    else if (currentFileOrRoot.startsWith('/en_') || currentFileOrRoot.startsWith('en_')) {
+        newFilename = currentFileOrRoot.replace('en_', 'ar_');
     } else {
-        // Fallback (في حالة اسم ملف غير متوقع - نحاول التحويل للرئيسية الإنجليزية)
-        newFilename = 'en_index.html';
+        // Fallback (إذا لم يتم التعرف على نمط التسمية - تحويل إلى الإنجليزية)
+        newFilename = 'en_' + currentFileOrRoot;
     }
 
-    // بناء المسار الجديد واستبدال اسم الملف
-    const newPath = currentPath.replace(currentFilename, newFilename);
+    // 4. بناء المسار الجديد والإرسال
+    
+    // تحديد المسار الأساسي (الجزء الذي يسبق اسم الملف)
+    const basePath = currentPath.substring(0, currentPath.lastIndexOf(currentFileOrRoot));
 
-    // إعادة التوجيه
-    window.location.href = newPath;
+    // إذا كانت النتيجة هي 'index.html' والمسار يحتوي على ملف، يجب أن يعود للجذر
+    if (newFilename === 'index.html') {
+         // نعود للمسار الأساسي فقط لـ index.html
+        window.location.pathname = basePath; 
+    } else {
+        // نضع اسم الملف الجديد
+        window.location.pathname = basePath + newFilename;
+    }
 }
+
+// ... (بقية كود main.js يبقى كما هو) ...
 
 document.addEventListener('DOMContentLoaded', function () {
 
