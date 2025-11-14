@@ -2,11 +2,11 @@
 function switchLanguage() {
     const currentPath = window.location.pathname;
     // استخراج اسم الملف الحالي (مثل index.html أو ar_projects.html)
-    const filenameMatch = currentPath.match(/([a-z_]+\.html)$/i);
+    const filenameMatch = currentPath.match(/([a-z0-9\-_]+\.html)$/i);
     const currentFilename = filenameMatch ? filenameMatch[1] : 'index.html';
 
     let newFilename = '';
-    
+
     // 1. حالة التحويل من AR (index.html أو ar_*) إلى EN
     if (currentFilename === 'index.html') {
         // من index.html (العربية) إلى en_index.html (الإنجليزية)
@@ -14,8 +14,8 @@ function switchLanguage() {
     } else if (currentFilename.startsWith('ar_')) {
         // من ar_projects.html إلى en_projects.html
         newFilename = currentFilename.replace('ar_', 'en_');
-    } 
-    
+    }
+
     // 2. حالة التحويل من EN (en_index.html أو en_*) إلى AR
     else if (currentFilename === 'en_index.html') {
         // من en_index.html (الإنجليزية) إلى index.html (العربية)
@@ -30,26 +30,26 @@ function switchLanguage() {
 
     // بناء المسار الجديد واستبدال اسم الملف
     const newPath = currentPath.replace(currentFilename, newFilename);
-    
+
     // إعادة التوجيه
     window.location.href = newPath;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    
+document.addEventListener('DOMContentLoaded', function () {
+
     // 1. Hamburger Menu Toggle Logic
     const hamburger = document.querySelector('.hamburger-menu');
     const navWrapper = document.querySelector('.main-nav-wrapper');
     const navLinks = document.querySelectorAll('.main-nav-wrapper nav ul li a');
 
     if (hamburger && navWrapper) {
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', function () {
             // إضافة وإزالة الكلاس active للهامبرغر والقائمة
             this.classList.toggle('active');
             navWrapper.classList.toggle('active');
-            
+
             // إضافة/إزالة كلاس overflow على الجسم لمنع التمرير عندما تكون القائمة مفتوحة
-            document.body.classList.toggle('menu-open'); 
+            document.body.classList.toggle('menu-open');
         });
 
         // Close menu when a link is clicked (for mobile)
@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Attach to Header Button
     if (headerLangButton) {
-        headerLangButton.addEventListener('click', function(e) {
-            e.preventDefault(); 
+        headerLangButton.addEventListener('click', function (e) {
+            e.preventDefault();
             switchLanguage();
         });
 
@@ -83,14 +83,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Attach to Floating Button
     if (floatLangButton) {
-        floatLangButton.addEventListener('click', function(e) {
-            e.preventDefault(); 
+        floatLangButton.addEventListener('click', function (e) {
+            e.preventDefault();
             switchLanguage();
         });
     }
 
     // 3. Placeholder for other interactive logic (e.g., FAQ Accordion)
     // Add your FAQ Accordion code here if needed.
-    
+
     // Note: Particles.js logic is now directly in the HTML file for simplicity.
 });
