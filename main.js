@@ -1,55 +1,48 @@
 // Function to dynamically switch between Arabic and English pages
-// Function to dynamically switch between Arabic and English pages
 function switchLanguage() {
-    // 1. استخراج المسار الكامل (بدون الدومين)
     const currentPath = window.location.pathname;
     
-    // 2. تحديد اسم الملف الحالي بشكل أدق (أو إرجاع مسار الجذر إذا كان index.html)
-    // التعبير العادي هنا يستخرج أي اسم ملف ينتهي بـ .html 
-    // أو لا يستخرج شيئاً إذا كان المسار هو '/' (الصفحة الرئيسية)
-    const filenameMatch = currentPath.match(/([a-z0-9\-_]+\.html)$/i); 
-    
-    // الحصول على اسم الملف أو مسار الجذر (/)
-    let currentFileOrRoot = filenameMatch ? filenameMatch[0] : '/'; 
-    let newFilename = '';
-
-    // 3. تحديد اسم الملف الجديد
+    // 1. تحديد حالة التحويل
     
     // حالة: الصفحة الرئيسية العربية (/) أو index.html
-    if (currentFileOrRoot === '/' || currentFileOrRoot === 'index.html') {
-        newFilename = 'en_index.html';
+    if (currentPath === '/' || currentPath.endsWith('/index.html')) {
+        // التحويل من (/) أو (index.html) إلى en_index.html
+        
+        // إذا كان المسار هو الجذر (/)، استخدم التحويل المباشر
+        if (currentPath === '/') {
+            window.location.pathname = '/en_index.html';
+        } 
+        // إذا كان المسار هو /index.html، قم بالاستبدال
+        else {
+            window.location.pathname = currentPath.replace('index.html', 'en_index.html');
+        }
     } 
-    // حالة: الصفحة الرئيسية الإنجليزية (en_index.html)
-    else if (currentFileOrRoot.endsWith('en_index.html')) {
-        // التحويل إلى الصفحة العربية الرئيسية، والتي هي '/' أو 'index.html'
-        newFilename = 'index.html'; 
-    }
-    // حالة: صفحة عربية أخرى (تبدأ بـ ar_)
-    else if (currentFileOrRoot.startsWith('/ar_') || currentFileOrRoot.startsWith('ar_')) {
-        newFilename = currentFileOrRoot.replace('ar_', 'en_');
-    } 
-    // حالة: صفحة إنجليزية أخرى (تبدأ بـ en_)
-    else if (currentFileOrRoot.startsWith('/en_') || currentFileOrRoot.startsWith('en_')) {
-        newFilename = currentFileOrRoot.replace('en_', 'ar_');
-    } else {
-        // Fallback (إذا لم يتم التعرف على نمط التسمية - تحويل إلى الإنجليزية)
-        newFilename = 'en_' + currentFileOrRoot;
-    }
-
-    // 4. بناء المسار الجديد والإرسال
     
-    // تحديد المسار الأساسي (الجزء الذي يسبق اسم الملف)
-    const basePath = currentPath.substring(0, currentPath.lastIndexOf(currentFileOrRoot));
-
-    // إذا كانت النتيجة هي 'index.html' والمسار يحتوي على ملف، يجب أن يعود للجذر
-    if (newFilename === 'index.html') {
-         // نعود للمسار الأساسي فقط لـ index.html
-        window.location.pathname = basePath; 
-    } else {
-        // نضع اسم الملف الجديد
-        window.location.pathname = basePath + newFilename;
+    // حالة: الصفحة الرئيسية الإنجليزية (en_index.html)
+    else if (currentPath.endsWith('/en_index.html')) {
+        // التحويل من en_index.html إلى index.html
+        window.location.pathname = currentPath.replace('en_index.html', 'index.html');
+    }
+    
+    // حالة: صفحة عربية أخرى (تبدأ بـ ar_)
+    else if (currentPath.startsWith('/ar_')) {
+        // من ar_projects.html إلى en_projects.html
+        window.location.pathname = currentPath.replace('/ar_', '/en_');
+    } 
+    
+    // حالة: صفحة إنجليزية أخرى (تبدأ بـ en_)
+    else if (currentPath.startsWith('/en_')) {
+        // من en_projects.html إلى ar_projects.html
+        window.location.pathname = currentPath.replace('/en_', '/ar_');
+    } 
+    
+    else {
+        // Fallback: لا يمكن التعرف على النمط، نحاول التحويل إلى الرئيسية الإنجليزية
+        console.error("Language switch failed: Unknown path pattern.");
+        window.location.pathname = '/en_index.html';
     }
 }
+// ... (بقية كود main.js يبقى كما هو) ...
 
 // ... (بقية كود main.js يبقى كما هو) ...
 
