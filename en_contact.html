@@ -14,7 +14,6 @@
         /* Contact Page Specific Styles */
         .contact-grid-layout {
             display: grid;
-            /* Info on Left (1fr), Form on Right (1.5fr) for LTR */
             grid-template-columns: 1fr 1.5fr;
             gap: 60px;
             margin-top: 50px;
@@ -39,7 +38,6 @@
 
         .contact-info-section p {
             display: flex;
-            /* لترتيب الأيقونات والنصوص */
             align-items: center;
             gap: 10px;
             margin-bottom: 15px;
@@ -80,7 +78,6 @@
             border: 1px solid var(--heading-color);
             background-color: var(--bg-dark);
             color: var(--text-light);
-            /* لضمان أن النص يبدأ من اليسار لـ LTR */
             text-align: left;
         }
 
@@ -99,7 +96,6 @@
             font-weight: 700;
             cursor: pointer;
             float: left;
-            /* **تعديل: زر الإرسال على اليسار لـ LTR** */
             transition: opacity 0.3s;
         }
 
@@ -135,11 +131,9 @@
 
             .contact-info-section p {
                 justify-content: center;
-                /* توسيط معلومات الاتصال في الموبايل */
             }
 
             .btn-send {
-                /* توسيط زر الإرسال في الموبايل */
                 float: none;
                 display: block;
                 width: 100%;
@@ -197,12 +191,10 @@
                     <!-- Left Column (Info) -->
                     <div class="contact-info-section">
                         <h2 style="color: var(--primary-color);text-align: center;">Contact Info</h2>
-                        <!-- البيانات الجديدة -->
                         <p class="contact-address"><i class="fas fa-map-marker-alt"></i> Riyadh, Kingdom Of Saudi Arbia,
                             Al-Malaz, Ibn Zaydoun Street</p>
                         <p class="contact-detail"><i class="fas fa-phone-alt"></i> 0548442666</p>
                         <p class="contact-detail"><i class="fas fa-envelope"></i> albader.aldawlih@outlook.com</p>
-                        <!-- تم حذف بيانات الفروع الأخرى -->
                     </div>
 
                     <!-- Right Column (Form) -->
@@ -240,36 +232,31 @@
                         </iframe>
                     </div>
                 </div>
-                <!-- **End of Map Section** -->
 
             </div>
         </section>
     </main>
     <!-- Floating Contact Buttons -->
      <div class="fixed-contact-buttons">
-        <!-- WhatsApp Button: الرقم الصحيح للواتساب - تم تحديث الرقم هنا -->
         <a href="https://wa.me/966548442666" target="_blank" class="floating-btn whatsapp-btn" aria-label="WhatsApp Us">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <!-- Phone Button: الرقم الصحيح للاتصال - تم تحديث الرقم هنا -->
         <a href="tel:0548442666" class="floating-btn phone-btn" aria-label="Call Us">
             <i class="fas fa-phone-alt"></i>
         </a>
-        <!-- NEW: Language Toggle Button -->
-        <!-- بما أن الصفحة هي العربية (index.html)، الزر يحول إلى الإنجليزية (en_index.html) -->
+
         <a href="#" class="floating-btn lang-toggle-btn" id="lang-toggle-float" aria-label="Change Language">
-            <i class="fas fa-globe"></i> <!-- تغيير الأيقونة إلى Globe لتبدو أفضل -->
+            <i class="fas fa-globe"></i> 
         </a>
     </div>
     <footer class="main-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>AL-BADER International Contracting</h3> <!-- تعريب العنوان -->
+                    <h3>AL-BADER International Contracting</h3> 
                     <p>A company specializing in applying all types of paints to iron, fire-resistant paints, and all
-                        types of epoxy floor paints.</p> <!-- تعريب النص -->
+                        types of epoxy floor paints.</p>
                     <div class="footer-social-links" style="direction: ltr;">
-                        <!-- تغيير الاتجاه إلى LTR للروابط الاجتماعية -->
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -277,8 +264,8 @@
                 </div>
 
                 <div class="footer-col">
-                    <h3>Quick Links</h3> <!-- تعريب العنوان -->
-                    <ul style="padding-left: 0;"> <!-- تغيير padding-right إلى padding-left لـ LTR -->
+                    <h3>Quick Links</h3> 
+                    <ul style="padding-left: 0;"> 
                         <li><a href="en_projects.html">Our Projects</a></li>
                         <li><a href="en_blog.html">Our Blog</a></li>
                         <li><a href="en_services.html">Our Services</a></li>
@@ -289,13 +276,10 @@
 
                 <!-- Right Column (Contact Info) -->
                 <div class="footer-col footer-contact-info">
-                    <!-- إزالة الـ style="text-align: right;" إن لم يكن موجوداً في CSS الخارجي -->
-                    <h3>Contact Info</h3> <!-- تعريب العنوان -->
+                    <h3>Contact Info</h3> 
 
-                    <!-- التعديل هنا: الأيقونة أولاً ثم النص، ويتم التحكم بالمحاذاة عبر CSS -->
-                    <!-- Note: The HTML structure is kept as is (Icon then Text). CSS must handle the LTR layout. -->
                     <p class="contact-address"><i class="fas fa-map-marker-alt"></i> Riyadh, Kingdom of Saudi Arabia,
-                        Al-Malaz, Ibn Zaydoun Street</p> <!-- تعريب البيانات -->
+                        Al-Malaz, Ibn Zaydoun Street</p>
                     <p class="contact-detail"><i class="fas fa-phone-alt"></i> 0548442666</p>
                     <p class="contact-detail"><i class="fas fa-envelope"></i> albader.aldawlih@outlook.com</p>
                 </div>
@@ -303,8 +287,7 @@
 
             <div class="copyright">
                 &copy; <span id="current-year">2024</span> AL-BADER International Contracting. All Rights Reserved.
-                <!-- تعريب النص -->
-                <p class="designer-note">Design and programming by<a href="https://www.facebook.com/profile.php?id=100090592885243&mibextid=ZbWKwL" target="_blank"><strong>GMTWEB</strong> </a> </p> <!-- تعريب النص -->
+                <p class="designer-note">Design and programming by<a href="https://www.facebook.com/profile.php?id=100090592885243&mibextid=ZbWKwL" target="_blank"><strong>GMTWEB</strong> </a> </p>
             </div>
         </div>
     </footer>

@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- إضافة ستايل خاص بالمقالات -->
     <style>
         .post-container { padding: 80px 0; }
         .post-header { margin-bottom: 40px; text-align: center; }
@@ -61,10 +60,8 @@
 </head>
 <body>
 
-    <!-- تم استخدام نفس كود الهيدر من ar_home.html -->
     <header>
     <div class="container header-container">
-        <!-- 1. الشعار -->
         <div class="logo header-logo">
             <a href="ar_home.html">
                 <img src="images/logo-removebg-preview (3).png" alt="شعار البدر الدولية للمقاولات" style="height: 40px; width: auto;">
@@ -72,14 +69,12 @@
             </a>
         </div>
         
-        <!-- 2. زر الهامبرغر (للموبايل) -->
         <button class="hamburger-menu" aria-label="Toggle Navigation">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
         
-        <!-- 3. القائمة الرئيسية -->
         <div class="main-nav-wrapper">
             <nav class="header-nav">
                 <ul>
@@ -92,7 +87,6 @@
                     </ul>
             </nav>
             
-            <!-- أزرار الإجراءات -->
             <div class="header-actions-group">
                 <a href="en_post-modern-engineering.html" class="lang-btn">English</a>
                 <a href="ar_contact.html" class="consultation-btn">طلب استشارة </a>
@@ -173,25 +167,21 @@
     </main>
     <!-- Floating Contact Buttons -->
     <div class="fixed-contact-buttons">
-        <!-- WhatsApp Button: الرقم الصحيح للواتساب - تم تحديث الرقم هنا -->
         <a href="https://wa.me/966548442666" target="_blank" class="floating-btn whatsapp-btn" aria-label="WhatsApp Us">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <!-- Phone Button: الرقم الصحيح للاتصال - تم تحديث الرقم هنا -->
         <a href="tel:0548442666" class="floating-btn phone-btn" aria-label="Call Us">
             <i class="fas fa-phone-alt"></i>
         </a>
-        <!-- NEW: Language Toggle Button -->
-        <!-- بما أن الصفحة هي العربية (index.html)، الزر يحول إلى الإنجليزية (en_index.html) -->
          <a href="#" class="floating-btn lang-toggle-btn" id="lang-toggle-float" aria-label="Change Language">
-            <i class="fas fa-globe"></i> <!-- تغيير الأيقونة إلى Globe لتبدو أفضل -->
+            <i class="fas fa-globe"></i> 
         </a>
     </div>
 <footer class="main-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>البدر الدولية للمقاولات</h3> <!-- تعريب العنوان -->
+                    <h3>البدر الدولية للمقاولات</h3>
                     <p>شركه متخصصه في تنفيذ  جميع أنواع الدهانات على الحديد، والدهانات المقاومة للحريق، وجميع أنواع الدهانات الإيبوكسية للأرضيات.</p> <!-- تعريب النص -->
                     <div class="footer-social-links" style="direction: rtl;"> <!-- إضافة اتجاه RTL للروابط الاجتماعية -->
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
@@ -201,7 +191,7 @@
                 </div>
 
                 <div class="footer-col">
-                    <h3>روابط سريعة</h3> <!-- تعريب العنوان -->
+                    <h3>روابط سريعة</h3>
                     <ul style="padding-right: 0;">
                         <li><a href="ar_projects.html">مشاريعنا</a></li>
                         <li><a href="ar_blog.html">مقالاتنا</a></li>
@@ -213,9 +203,7 @@
 
                 <!-- Left Column (Info) -->
                     <div class="contact-info-section">
-                        <h2 style="color: var(--primary-color);text-align: center;">بيانات التواصل</h2> <!-- تعريب العنوان -->
-                        <!-- البيانات الجديدة -->
-                        <!-- يتم التحكم بترتيب الأيقونة (الأولى في الكود) والنص بواسطة CSS: flex-direction: row-reverse -->
+                        <h2 style="color: var(--primary-color);text-align: center;">بيانات التواصل</h2>
                         <p class="contact-address"><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية، الملز، شارع ابن زيدون</p> <!-- تعريب البيانات -->
                         <p class="contact-detail"><i class="fas fa-phone-alt"></i> 0548442666</p>
                         <p class="contact-detail"><i class="fas fa-envelope"></i> albader.aldawlih@outlook.com</p>
